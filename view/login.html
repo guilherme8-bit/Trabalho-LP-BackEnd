@@ -3,31 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../estilizacao/style.css">
-    <title>MOVIEFLIX</title>
+    <link rel="stylesheet" href="../estilizacao/login.css">
+    <title>Login</title>
 </head>
 <body>
-    <section class="background-container">
-        <header class="navbar">
-            <p class="logo">MOVIEFLIX</p>
-            <section class="nav-links">
-                <a href="../view/login.html" class="entrar">Entrar</a>
-                <a href="" class="assinar">Assine Agora</a>
+    <header class="navbar">
+        <p class="logo">MOVIEFLIX</p>
+        <section class="nav-links">
+            <a href="../view/index.html" class="entrar">Sair</a>
+        </section>
+    </header>
+    <main class="login-container">
+        <section class="login-box">
+            <section class="icone-usuario">
+                <img src="../img/usuario.png" alt="usuário">
             </section>
-        </header>
+            <form>
+                <label for="usuario">Usuario</label>
+                <input type="text" id="usuario" name="usuario">
 
-        <main>
-            <section class="main-content">
-                <h1>Filmes, séries e muitos mais</h1>
-                <h2>Escolha um plano a partir de R$ 20,90. Cancele quando quiser</h2>
-                <p>Digite seu e-mail para começar</p>
-                <form class="email-form">
-                    <input type="email" placeholder="Email" required>
-                    <button type="submit">Preparado &gt;</button>
-                </form>
-            </section>
-        </main>
-    </section>
+                <label for="senha">Senha</label>
+                <input type="password" id="senha" name="senha">
+                
+                <section class="buttons">
+                    <button type="submit" class="btn">Entrar</button>
+                    <button type="button" class="btn secundario">Esqueci a senha</button>
+                </section>
+
+                <a href="../view/cadstro.html" class="link-cadastrar">Como me cadastrar?</a>
+            </form>
+        </section>
+    </main>
+
     <footer class="main-footer">
         <section class="footer-content">
             <section class="footer-section about">
