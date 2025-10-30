@@ -200,3 +200,7 @@ input {
     border-top: 1px solid #012;
 }
 
+#botao{
+    text-decoration: none;
+    color: white;
+}
