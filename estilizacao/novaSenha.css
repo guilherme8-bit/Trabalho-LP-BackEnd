@@ -3,8 +3,7 @@ body{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background: linear-gradient(#00283e, #001d3d);
-    
+    background:linear-gradient(rgb(0, 40, 65), rgb(0, 29, 70));
 }
 
 .navbar{

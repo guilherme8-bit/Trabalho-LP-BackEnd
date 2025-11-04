@@ -3,8 +3,7 @@ body{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background: linear-gradient(#00283e, #001d3d);
-    
+    background:linear-gradient(rgb(0, 40, 65), rgb(0, 29, 70));
 }
 
 .navbar{
@@ -39,8 +38,8 @@ body{
     width: 90%;
     margin: 120px auto; 
     padding: 30px;
-    box-shadow: 0px 0px 40px #0006;
-    border-radius: 8px;
+    box-shadow: 0px 0px 40px #0003;
+    border-radius: 20px;
 }
 
 .icone-usuario{
@@ -92,7 +91,7 @@ input {
     background-color: #00b0d9;
     color: #fff;
     border: none;
-    border-radius: 20px;
+    border-radius: 15px;
     padding: 12px 25px;
     cursor: pointer;
     transition: background-color 0.3s, transform 0.2s;
