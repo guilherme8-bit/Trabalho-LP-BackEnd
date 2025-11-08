@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../estilizacao/novaSenha.css">
-    <title>novaSenha</title>
+    <link rel="stylesheet" href="../estilizacao/codigo.css">
+    <title>Codigo</title>
 </head>
 <body>
     <header class="navbar">
         <p class="logo">MOVIEFLIX</p>
         <section class="nav-links">
-            <a href="../view/index.html">Sair</a>
+            <a href="../index.php">Sair</a>
         </section>
     </header>
     <main class="login-container">
@@ -19,12 +19,10 @@
                 <img src="../img/o-email.png" alt="usuário">
             </section>
             <form>
-                <label for="nome">Digite a nova senha</label>
-                <input type="text" id="nome" name="nome">
-                <label for="nome">Digite novamente</label>
-                <input type="text" id="nome" name="nome">   
+                <label for="nome">Inserir código</label>
+                <input type="text" id="nome" name="nome">  
                 <section class="buttons">
-                    <button type="submit" class="btn"><a href="../view/login.html" id="botao">Confirmar</a></button>
+                    <button type="submit" class="btn"><a href="../view/novaSenha.html" id="botao">Confirmar</a></button>
                 </section>
             </form>
         </section>

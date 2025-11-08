@@ -1,45 +1,30 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../estilizacao/cadfilme.css">
-    <title>cadfilme</title>
+    <link rel="stylesheet" href="../estilizacao/novaSenha.css">
+    <title>novaSenha</title>
 </head>
 <body>
     <header class="navbar">
         <p class="logo">MOVIEFLIX</p>
         <section class="nav-links">
-            <a href="../view/index.html" class="entrar">Sair</a>
+            <a href="../index.html">Sair</a>
         </section>
     </header>
     <main class="login-container">
         <section class="login-box">
-            <h3 class="titulo-filme">Cadastro de Filmes</h3>
-            <form action="../processamento/processamento.php" method="POST" enctype="multipart/form-data">
-                <label for="Nome">Nome</label>
-                <input type="text" id="nome" name="inputNome">
-
-                <label for="Descricao">Descrição</label>
-                <input type="text" id="descricao" name="inputDesc">
-
-                <label for="Genero">Gênero</label>
-                <input type="text" id="genero" name="inputGen">
-                
-                <label for="Avaliacao">Avaliação</label>
-                <input type="number" id="avaliacao" name="inputAva" min="0" max="10">
-
-                <label for="senha">Ano</label>
-                <input type="number" id="ano" name="inputAno" min="1900" max="2025">
-                <section>
-                    <p class="cor-titulo">Selecionar imagem do filme:</p>
-                </section>
-                <label for="fileInput" class="label-botao">
-                    Escolher arquivo
-                    <input type="file" id="fileInput" class="botao-arquivo">
-                </label>
+            <section class="icone-usuario">
+                <img src="../img/o-email.png" alt="usuário">
+            </section>
+            <form>
+                <label for="nome">Digite a nova senha</label>
+                <input type="text" id="nome" name="nome">
+                <label for="nome">Digite novamente</label>
+                <input type="text" id="nome" name="nome">   
                 <section class="buttons">
-                    <button type="submit" class="btn">Cadastrar</button>
+                    <button type="submit" class="btn"><a href="../view/login.html" id="botao">Confirmar</a></button>
                 </section>
             </form>
         </section>

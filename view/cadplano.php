@@ -3,41 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../estilizacao/cadserie.css">
-    <title>cadserie</title>
+    <link rel="stylesheet" href="../estilizacao/cadplano.css">
+    <title>cadplano</title>
 </head>
 <body>
     <header class="navbar">
         <p class="logo">MOVIEFLIX</p>
         <section class="nav-links">
-            <a href="../view/index.html" class="entrar">Sair</a>
+            <a href="../index.php" class="entrar">Sair</a>
         </section>
     </header>
     <main class="login-container">
         <section class="login-box">
-            <h3 class="titulo-filme">Cadastro de Séries</h3>
-            <form action="../processamento/processamento.php" method="POST" enctype="multipart/form-data">
+            <h3 class="titulo-filme">Cadastro de Planos</h3>
+            <form action="../processamento/processamento.php" method="POST">
                 <label for="nome">Nome</label>
                 <input type="text" id="nome" name="inputNome">
 
                 <label for="cpf">Descrição</label>
                 <input type="text" id="descricao" name="inputDesc">
 
-                <label for="email">Gênero</label>
-                <input type="email" id="genero" name="inputGen">
+                <label for="email">Valor Mensal</label>
+                <input type="number" id="email" name="inputVM" min="0" step="0.01">
                 
-                <label for="senha">Avaliação</label>
-                <input type="number" id="avaliacao" name="inputAva" min="0" max="10">
+                <label for="senha">Valor Anual</label>
+                <input type="number" id="senha" name="inputVA" min="0">
 
-                <label for="senha">Ano</label>
-                <input type="number" id="ano" name="inputAno" min="1900" max="2100">
-                <section>
-                    <p class="cor-titulo">Selecionar imagem da Série:</p>
+                <label for="senha">Qualidade Máxima</label>
+                <input type="number" id="senha" name="inputQM" min="0">
+
+                <label for="senha">Telas Simultaneas</label>
+                <input type="number" id="senha" name="inputTS">
+
+                <section class="opcoes">
+                <label>
+                <input type="checkbox" name="esta_ativo" value="1">Está ativo</label>
+
+                <label>
+                <input type="checkbox" name="tem_anuncios" value="1">Tem anúncios</label>
                 </section>
-                <label for="fileInput" class="label-botao">
-                    Escolher arquivo
-                    <input type="file" id="fileInput" class="botao-arquivo">
-                </label>
+                
+
                 <section class="buttons">
                     <button type="submit" class="btn">Cadastrar</button>
                 </section>

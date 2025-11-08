@@ -3,26 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../estilizacao/esqSenha.css">
-    <title>esqSenha</title>
+    <link rel="stylesheet" href="../estilizacao/cadastro.css">
+    <title>Cadastro</title>
 </head>
 <body>
     <header class="navbar">
         <p class="logo">MOVIEFLIX</p>
         <section class="nav-links">
-            <a href="../view/index.html">Sair</a>
+            <a href="../index.php" class="sair">Sair</a>
         </section>
     </header>
     <main class="login-container">
         <section class="login-box">
             <section class="icone-usuario">
-                <img src="../img/o-email.png" alt="usuário">
+                <img src="../img/usuario.png" alt="usuário">
             </section>
             <form>
-                <label for="nome">E-mail</label>
-                <input type="text" id="nome" name="nome">  
+                <a href="../view/login.php" class="voltar">
+                    <img src="../img/voltar.png" alt="Voltar">
+                </a>
+                <label for="nome">Nome Completo</label>
+                <input type="text" id="nome" name="nome">
+
+                <label for="cpf">CPF</label>
+                <input type="text" id="cpf" name="cpf">
+
+                <label for="email">E-mail</label>
+                <input type="email" id="email" name="email">
+                
+                <label for="senha">Senha</label>
+                <input type="password" id="senha" name="senha">
+                
                 <section class="buttons">
-                    <button type="submit" class="btn"><a href="../view/codigo.html" id="botao">Confirmar</a></button>
+                    <button type="submit" class="btn">Cadastrar</button>
                 </section>
             </form>
         </section>

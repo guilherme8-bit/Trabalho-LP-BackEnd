@@ -10,12 +10,18 @@
     <header class="navbar">
         <p class="logo">MOVIEFLIX</p>
         <nav class="nav-links">
-            <a href="#" class="icon"><img src="../img/house.png">Home</a>
+            <a href="../view/home.html" class="icon"><img src="../img/house.png">Home</a>
             <a href="#" class="icon"><img src="../img/lupa.png">Procurar</a>
             <a href="#" class="icon"><img src="../img/mais.png">Minha lista</a>
             <a href="#" class="icon"><img src="../img/camera.png">Filmes</a>
             <a href="#" class="icon"><img src="../img/tv_show.png">Séries</a>
-            <a href="#" class="icon"><img src="../img/usuario.png">Perfil</a>
+            <section class="perfil">
+                <img src="../img/usuario.png" alt="Perfil" class="perfil-img">
+                <section class="menu-perfil">
+                    <a href="#">Meu Perfil</a>
+                    <a href="../view/login.php">Sair</a>
+                </section>
+            </section>
         </nav>
     </header>
     <main>

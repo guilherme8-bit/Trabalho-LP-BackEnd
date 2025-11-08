@@ -1,36 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../estilizacao/cadastro.css">
-    <title>Cadastro</title>
+    <link rel="stylesheet" href="../estilizacao/cadserie.css">
+    <title>cadserie</title>
 </head>
 <body>
     <header class="navbar">
         <p class="logo">MOVIEFLIX</p>
         <section class="nav-links">
-            <a href="../view/index.html" class="sair">Sair</a>
+            <a href="../index.php" class="entrar">Sair</a>
         </section>
     </header>
     <main class="login-container">
         <section class="login-box">
-            <section class="icone-usuario">
-                <img src="../img/usuario.png" alt="usuário">
-            </section>
-            <form>
-                <label for="nome">Nome Completo</label>
-                <input type="text" id="nome" name="nome">
+            <h3 class="titulo-filme">Cadastro de Séries</h3>
+            <form action="../processamento/processamento.php" method="POST" enctype="multipart/form-data">
+                <label for="nome">Nome</label>
+                <input type="text" id="nome" name="inputNome">
 
-                <label for="cpf">CPF</label>
-                <input type="text" id="cpf" name="cpf">
+                <label for="cpf">Descrição</label>
+                <input type="text" id="descricao" name="inputDesc">
 
-                <label for="email">E-mail</label>
-                <input type="email" id="email" name="email">
+                <label for="email">Gênero</label>
+                <input type="email" id="genero" name="inputGen">
                 
-                <label for="senha">Senha</label>
-                <input type="password" id="senha" name="senha">
-                
+                <label for="senha">Avaliação</label>
+                <input type="number" id="avaliacao" name="inputAva" min="0" max="10">
+
+                <label for="senha">Ano</label>
+                <input type="number" id="ano" name="inputAno" min="1900" max="2100">
+                <section>
+                    <p class="cor-titulo">Selecionar imagem da Série:</p>
+                </section>
+                <label for="fileInput" class="label-botao">
+                    Escolher arquivo
+                    <input type="file" id="fileInput" class="botao-arquivo">
+                </label>
                 <section class="buttons">
                     <button type="submit" class="btn">Cadastrar</button>
                 </section>

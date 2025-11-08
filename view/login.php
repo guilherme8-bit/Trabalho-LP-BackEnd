@@ -1,52 +1,39 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../estilizacao/cadplano.css">
-    <title>cadplano</title>
+    <link rel="stylesheet" href="../estilizacao/login.css">
+    <title>Login</title>
 </head>
 <body>
     <header class="navbar">
         <p class="logo">MOVIEFLIX</p>
         <section class="nav-links">
-            <a href="../view/index.html" class="entrar">Sair</a>
+            <a href="../index.php">Sair</a>
         </section>
     </header>
     <main class="login-container">
         <section class="login-box">
-            <h3 class="titulo-filme">Cadastro de Planos</h3>
-            <form action="../processamento/processamento.php" method="POST">
-                <label for="nome">Nome</label>
-                <input type="text" id="nome" name="inputNome">
+            <section class="icone-usuario">
+                <img src="../img/usuario.png" alt="usuário">
+            </section>
+            <form>
+                <a href="../index.php" class="voltar">
+                    <img src="../img/voltar.png" alt="Voltar">
+                </a>
+                <label for="usuario">Usuario</label>
+                <input type="text" id="usuario" name="usuario">
 
-                <label for="cpf">Descrição</label>
-                <input type="text" id="descricao" name="inputDesc">
-
-                <label for="email">Valor Mensal</label>
-                <input type="number" id="email" name="inputVM" min="0" step="0.01">
+                <label for="senha">Senha</label>
+                <input type="password" id="senha" name="senha">
                 
-                <label for="senha">Valor Anual</label>
-                <input type="number" id="senha" name="inputVA" min="0">
-
-                <label for="senha">Qualidade Máxima</label>
-                <input type="number" id="senha" name="inputQM" min="0">
-
-                <label for="senha">Telas Simultaneas</label>
-                <input type="number" id="senha" name="inputTS">
-
-                <section class="opcoes">
-                <label>
-                <input type="checkbox" name="esta_ativo" value="1">Está ativo</label>
-
-                <label>
-                <input type="checkbox" name="tem_anuncios" value="1">Tem anúncios</label>
-                </section>
-                
-
                 <section class="buttons">
-                    <button type="submit" class="btn">Cadastrar</button>
+                    <button type="submit" class="btn">Entrar</button>
+                    <a href="../view/esqSenha.php" class="btn btn-link">Esqueci a senha</a>
                 </section>
+
+                <a href="../view/cadstro.php" class="link-cadastrar">Como me cadastrar?</a>
             </form>
         </section>
     </main>
