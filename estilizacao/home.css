@@ -70,14 +70,14 @@ body{
     right: 0;
     background-color: #002;
     border-radius: 10px;
-    min-width: 160px;
+    min-width: 200px;
     box-shadow: 0 4px 8px #000c;
     z-index: 3;
 }
 
 .menu-perfil a {
     color: #fff;
-    padding: 10px 15px;
+    padding: 10px 20px;
     display: block;
     text-decoration: none;
     transition: background 0.3s ease;
@@ -185,7 +185,6 @@ body{
 .flex-filmes {
     display: flex;
     align-items: center;
-    text-align: center;
     overflow-x: auto;
     scroll-behavior: smooth;
     gap: 20px;

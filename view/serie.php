@@ -7,14 +7,27 @@
     <link rel="stylesheet" href="../estilizacao/serie.css">
 </head>
 <body>
-    <nav>
-        <img class="casa" src="/img/house.png" alt="">
-        <h2><a href="home.html">Home</a></h2>
-    </nav>
-        <section class="titulo">
-            <img class="filme" src="/img/tv_show.png" alt="">
-                <h3>Séries</h3>
-        </section>
+    <header class="navbar">
+        <p class="logo">CINEPRIME</p>
+        <nav class="nav-links">
+            <a href="../view/home.php" class="icon"><img src="../img/house.png">Home</a>
+            <a href="#" class="icon"><img src="../img/lupa.png">Procurar</a>
+            <a href="#" class="icon"><img src="../img/mais.png">Minha lista</a>
+            <a href="../view/filme.php" class="icon"><img src="../img/camera.png">Filmes</a>
+            <a href="../view/serie.php" class="icon"><img src="../img/tv_show.png">Séries</a>
+            <section class="perfil">
+                <img src="../img/usuario.png" alt="Perfil" class="perfil-img">
+                <section class="menu-perfil">
+                    <a href="#">Meu Perfil</a>
+                    <a href="../view/cadfilme.php">Cadastrar filmes</a>
+                    <a href="../view/cadserie.php">Cadastrar séries</a>
+                    <a href="../view/cadplano.php">Cadastrar planos</a>
+                    <a href="../view/login.php">Sair</a>
+                </section>
+            </section>
+        </nav>
+    </header>
+    <h2>Séries</h2>
             <section class="bloco-principal">
                 <h3>Ação</h3>
                 <section class="flex-filmes">

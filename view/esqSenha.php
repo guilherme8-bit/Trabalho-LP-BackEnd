@@ -8,7 +8,7 @@
 </head>
 <body>
     <header class="navbar">
-        <p class="logo">MOVIEFLIX</p>
+        <p class="logo">CINEPRIME</p>
         <section class="nav-links">
             <a href="../index.php">Sair</a>
         </section>

@@ -18,7 +18,7 @@
             <section class="icone-usuario">
                 <img src="../img/usuario.png" alt="usuário">
             </section>
-            <form>
+            <form action="../processamento/processamento.php" method="POST">
                 <a href="../view/login.php" class="voltar">
                     <img src="../img/voltar.png" alt="Voltar">
                 </a>

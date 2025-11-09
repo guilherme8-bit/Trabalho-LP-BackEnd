@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="estilizacao/style.css">
-    <title>MOVIEFLIX</title>
+    <title>CINEPRIME</title>
 </head>
 <body>
     <section class="background-container">
     <header class="navbar">
-        <p class="logo">MOVIEFLIX</p>
+        <p class="logo">CINEPRIME</p>
         <section class="nav-links">
             <a href="view/login.php" class="entrar">Entrar</a>
             <a href="" class="assinar">Assine Agora</a>

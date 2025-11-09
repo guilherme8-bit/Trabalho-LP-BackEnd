@@ -8,7 +8,7 @@
 </head>
 <body>
     <header class="navbar">
-        <p class="logo">MOVIEFLIX</p>
+        <p class="logo">CINEPRIME</p>
         <section class="nav-links">
             <a href="../index.php">Sair</a>
         </section>
@@ -18,7 +18,7 @@
             <section class="icone-usuario">
                 <img src="../img/usuario.png" alt="usuário">
             </section>
-            <form>
+            <form action="../processamento/processamento.php" method="POST">
                 <a href="../index.php" class="voltar">
                     <img src="../img/voltar.png" alt="Voltar">
                 </a>

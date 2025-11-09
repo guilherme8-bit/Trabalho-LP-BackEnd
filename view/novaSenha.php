@@ -8,9 +8,9 @@
 </head>
 <body>
     <header class="navbar">
-        <p class="logo">MOVIEFLIX</p>
+        <p class="logo">CINEPRIME</p>
         <section class="nav-links">
-            <a href="../index.html">Sair</a>
+            <a href="../index.php">Sair</a>
         </section>
     </header>
     <main class="login-container">
