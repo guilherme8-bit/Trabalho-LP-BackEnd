@@ -30,19 +30,19 @@
         <section class="login-box">
             <h3 class="titulo-filme">Cadastro de Filmes</h3>
             <form action="../processamento/processamento.php" method="POST" enctype="multipart/form-data">
-                <label for="Nome">Nome</label>
+                <label for="nome">Nome</label>
                 <input type="text" id="nome" name="inputNome">
 
-                <label for="Descricao">Descrição</label>
-                <input type="text" id="descricao" name="inputDesc">
+                <label for="descricao">Descrição</label>
+                <textarea id="descricao" name="inputDesc"></textarea>
 
-                <label for="Genero">Gênero</label>
+                <label for="genero">Gênero</label>
                 <input type="text" id="genero" name="inputGen">
                 
-                <label for="Avaliacao">Avaliação</label>
+                <label for="avaliacao">Avaliação</label>
                 <input type="number" id="avaliacao" name="inputAva" min="0" max="10">
 
-                <label for="senha">Ano</label>
+                <label for="ano">Ano</label>
                 <input type="number" id="ano" name="inputAno" min="1900" max="2025">
                 <section>
                     <p class="cor-titulo">Selecionar imagem do filme:</p>

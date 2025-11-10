@@ -133,6 +133,23 @@ input {
     box-sizing: border-box;
 }
 
+textarea {
+    width: 100%;
+    padding: 15px;
+    border-radius: 25px;
+    border: none;
+    background-color: #000;
+    color: #fff;
+    outline: none;
+    font-size: 1em;
+    margin-bottom: 12px;
+    box-sizing: border-box;
+    resize: vertical;
+    min-height: 200px; 
+    max-height: 200px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
 .buttons {
     width: 100%;
     display: flex;

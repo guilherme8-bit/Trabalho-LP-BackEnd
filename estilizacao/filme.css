@@ -18,7 +18,7 @@ body{
     color: #09b;
     text-shadow: 0px 0px 15px #09b7;
     font-weight: 800;
-    padding-left: 1.8em;
+    padding-left: 1.5em;
 }
 
 .nav-links img {
@@ -94,7 +94,8 @@ body{
 h2{
     color: #fff;
     font-size: 2rem;
-    margin: 40px 40px;
+    margin: 40px;
+    padding-left: 20px;
 }
 
 .bloco-principal{

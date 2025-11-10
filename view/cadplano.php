@@ -50,10 +50,10 @@
 
                 <section class="opcoes">
                 <label>
-                <input type="checkbox" name="esta_ativo" value="1">Está ativo</label>
+                <input type="checkbox" name="inputAtivo" value="1">Está ativo</label>
 
                 <label>
-                <input type="checkbox" name="tem_anuncios" value="1">Tem anúncios</label>
+                <input type="checkbox" name="inputAnuncio" value="1">Tem anúncios</label>
                 </section>
                 
 

@@ -33,16 +33,16 @@
                 <label for="nome">Nome</label>
                 <input type="text" id="nome" name="inputNome">
 
-                <label for="cpf">Descrição</label>
-                <input type="text" id="descricao" name="inputDesc">
+                <label for="descrição">Descrição</label>
+                <textarea id="descricao" name="inputDesc"></textarea>
 
-                <label for="email">Gênero</label>
-                <input type="email" id="genero" name="inputGen">
+                <label for="genero">Gênero</label>
+                <input type="text" id="genero" name="inputGen">
                 
-                <label for="senha">Avaliação</label>
+                <label for="avaliacao">Avaliação</label>
                 <input type="number" id="avaliacao" name="inputAva" min="0" max="10">
 
-                <label for="senha">Ano</label>
+                <label for="ano">Ano</label>
                 <input type="number" id="ano" name="inputAno" min="1900" max="2100">
                 <section>
                     <p class="cor-titulo">Selecionar imagem da Série:</p>

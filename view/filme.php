@@ -8,7 +8,7 @@
 </head>
 <body>
     <header class="navbar">
-        <p class="logo">MOVIEFLIX</p>
+        <p class="logo">CINEPRIME</p>
         <nav class="nav-links">
             <a href="../view/home.php" class="icon"><img src="../img/house.png">Home</a>
             <a href="#" class="icon"><img src="../img/lupa.png">Procurar</a>

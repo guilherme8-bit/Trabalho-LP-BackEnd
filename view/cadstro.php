@@ -8,7 +8,7 @@
 </head>
 <body>
     <header class="navbar">
-        <p class="logo">MOVIEFLIX</p>
+        <p class="logo">CINEPRIME</p>
         <section class="nav-links">
             <a href="../index.php" class="sair">Sair</a>
         </section>
@@ -23,16 +23,17 @@
                     <img src="../img/voltar.png" alt="Voltar">
                 </a>
                 <label for="nome">Nome Completo</label>
-                <input type="text" id="nome" name="nome">
+                <input type="text" id="nome" name="ipuntNome">
 
                 <label for="cpf">CPF</label>
-                <input type="text" id="cpf" name="cpf">
+                <input type="text" id="cpf" name="inputCPF">
 
                 <label for="email">E-mail</label>
-                <input type="email" id="email" name="email">
+                <input type="email" id="email" name="inputEmail">
                 
                 <label for="senha">Senha</label>
-                <input type="password" id="senha" name="senha">
+                <input type="password" id="senha" name="inputSenha">
+                
                 
                 <section class="buttons">
                     <button type="submit" class="btn">Cadastrar</button>
