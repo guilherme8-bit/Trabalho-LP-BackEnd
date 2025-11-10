@@ -49,7 +49,7 @@
                 </section>
                 <label for="fileInput" class="label-botao">
                     Escolher arquivo
-                    <input type="file" id="fileInput" class="botao-arquivo">
+                    <input type="file" id="fileInput" name="arquivo" class="botao-arquivo">
                 </label>
                 <section class="buttons">
                     <button type="submit" class="btn">Cadastrar</button>
