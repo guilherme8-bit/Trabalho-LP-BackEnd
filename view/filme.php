@@ -1,3 +1,8 @@
+<?php
+
+require_once "../processamento/funcoesBD.php";
+
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -31,7 +36,14 @@
             <section class="bloco-principal">
                 <h3>Ação</h3>
                 <section class="flex-filmes">
-                    <section class="card"><img src="../img/filmes/batman.jpg"></section>
+                    <?php
+                        $listaFilmes = retornarFilmes();
+                        while($filme = mysqli_fetch_assoc($listaFilmes)){
+                            $imagemBase64 = base64_encode($filme["imagem"]);
+                            echo '<section class=\"card\"><img src= "data:image/jpeg;base64,' . $imagemBase64 . '"/></section>';
+                        }
+                    ?>
+                    <!-- 
                     <section class="card"><img src="../img/filmes/aquaman.jpg"></section>
                     <section class="card"><img src="../img/filmes/jw.jpg"></section>
                     <section class="card"><img src="../img/filmes/mi.jpg"></section>
@@ -40,7 +52,7 @@
                     <section class="card"><img src="../img/filmes/logan.webp"></section>
                     <section class="card"><img src="../img/filmes/transformers.jpe"></section>
                     <section class="card"><img src="../img/filmes/avatar.jpg"></section>
-                    <section class="card"><img src="../img/filmes/tropa-de-elite.webp"></section>
+                    <section class="card"><img src="../img/filmes/tropa-de-elite.webp"></section> -->
                 </section>
               
                 <h3>Aventura</h3>
