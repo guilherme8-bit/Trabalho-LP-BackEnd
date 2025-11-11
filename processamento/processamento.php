@@ -19,16 +19,16 @@ if(isset($_POST['inputNome']) && isset($_POST['inputDesc']) && isset($_POST['inp
     
 } 
 
-if(isset($_POST['inputNome']) && isset($_POST['inputDesc']) && isset($_POST['inputGen']) && isset($_POST['inputAva']) && isset($_POST['inputAno']) && isset($_FILES['arquivo'])){
+if(isset($_POST['inputNomeS']) && isset($_POST['inputDescS']) && isset($_POST['inputGenS']) && isset($_POST['inputAvaS']) && isset($_POST['inputAnoS']) && isset($_FILES['arquivoS'])){
     
-    $nome = $_POST['inputNome'];
-    $descricao = $_POST['inputDesc'];
-    $genero = $_POST['inputGen'];
-    $avaliacao = $_POST['inputAva'];
-    $ano = $_POST['inputAno'];
-    $arquivo = $_FILES['arquivo'];
+    $nomeS = $_POST['inputNomeS'];
+    $descricaoS = $_POST['inputDescS'];
+    $generoS = $_POST['inputGenS'];
+    $avaliacaoS = $_POST['inputAvaS'];
+    $anoS = $_POST['inputAnoS'];
+    $arquivoS = $_FILES['arquivoS'];
     
-    inserirSerie($nome, $descricao, $genero, $avaliacao, $ano, $arquivo);
+    inserirSerie($nomeS, $descricaoS, $generoS, $avaliacaoS, $anoS, $arquivoS);
     
     header('Location:../view/cadserie.php');
     die();

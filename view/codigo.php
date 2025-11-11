@@ -22,7 +22,7 @@
                 <label for="nome">Inserir código</label>
                 <input type="text" id="nome" name="nome">  
                 <section class="buttons">
-                    <button type="submit" class="btn"><a href="../view/novaSenha.html" id="botao">Confirmar</a></button>
+                    <button type="submit" class="btn"><a href="../view/novaSenha.php" id="botao">Confirmar</a></button>
                 </section>
             </form>
         </section>
@@ -56,7 +56,7 @@
         </section>
 
         <section class="footer-bottom">
-            &copy; <span id="current-year"></span> Movieflix. Todos os direitos reservados.
+            &copy; Movieflix. Todos os direitos reservados.
         </section>
     </footer>
 </body>

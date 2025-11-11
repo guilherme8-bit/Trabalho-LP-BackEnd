@@ -25,7 +25,7 @@
                 <label for="nome">E-mail</label>
                 <input type="text" id="nome" name="nome">  
                 <section class="buttons">
-                    <button type="submit" class="btn"><a href="../view/codigo.html" id="botao">Confirmar</a></button>
+                    <button type="submit" class="btn"><a href="../view/codigo.php" id="botao">Confirmar</a></button>
                 </section>
             </form>
         </section>
@@ -53,13 +53,13 @@
                 <section class="social-icons">
                     <a href="#"><img src="../img/instagram.png" alt="instagrma"></a>
                     <a href="#"><img src="../img/facebook.png" alt="facebook"></a>
-                    <a href="#"><img src="../img/ex-twitter.png" alt="twitter"></a>
+                    <a href="#"><img src="../img/ex-twitter.png" alt="twitter" class="x"></a>
                 </section>
             </section>
         </section>
 
         <section class="footer-bottom">
-            &copy; <span id="current-year"></span> Movieflix. Todos os direitos reservados.
+            &copy; Movieflix. Todos os direitos reservados.
         </section>
     </footer>
 </body>

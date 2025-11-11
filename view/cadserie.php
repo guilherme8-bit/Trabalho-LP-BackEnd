@@ -31,25 +31,25 @@
             <h3 class="titulo-filme">Cadastro de Séries</h3>
             <form action="../processamento/processamento.php" method="POST" enctype="multipart/form-data">
                 <label for="nome">Nome</label>
-                <input type="text" id="nome" name="inputNome">
+                <input type="text" id="nome" name="inputNomeS">
 
                 <label for="descrição">Descrição</label>
-                <textarea id="descricao" name="inputDesc"></textarea>
+                <textarea id="descricao" name="inputDescS"></textarea>
 
                 <label for="genero">Gênero</label>
-                <input type="text" id="genero" name="inputGen">
+                <input type="text" id="genero" name="inputGenS">
                 
                 <label for="avaliacao">Avaliação</label>
-                <input type="number" id="avaliacao" name="inputAva" min="0" max="10">
+                <input type="number" id="avaliacao" name="inputAvaS" min="0" max="10">
 
                 <label for="ano">Ano</label>
-                <input type="number" id="ano" name="inputAno" min="1900" max="2100">
+                <input type="number" id="ano" name="inputAnoS" min="1900" max="2100">
                 <section>
                     <p class="cor-titulo">Selecionar imagem da Série:</p>
                 </section>
                 <label for="fileInput" class="label-botao">
                     Escolher arquivo
-                    <input type="file" id="fileInput" name="arquivo" class="botao-arquivo">
+                    <input type="file" id="fileInput" name="arquivoS" class="botao-arquivo">
                 </label>
                 <section class="buttons">
                     <button type="submit" class="btn">Cadastrar</button>
@@ -80,13 +80,13 @@
                 <section class="social-icons">
                     <a href="#"><img src="../img/instagram.png" alt="instagrma"></a>
                     <a href="#"><img src="../img/facebook.png" alt="facebook"></a>
-                    <a href="#"><img src="../img/ex-twitter.png" alt="twitter"></a>
+                    <a href="#"><img src="../img/ex-twitter.png" alt="twitter" class="x"></a>
                 </section>
             </section>
         </section>
 
         <section class="footer-bottom">
-            &copy; <span id="current-year"></span> Movieflix. Todos os direitos reservados.
+            &copy; Movieflix. Todos os direitos reservados.
         </section>
     </footer>
 </body>

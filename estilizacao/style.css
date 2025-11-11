@@ -321,11 +321,13 @@ body{
     border: none;
     transition: transform 0.3s ease-in-out;
 }
+.social-icons .x{
+    filter: invert(1);
+}
 
 .social-icons img:hover {
-    transform: scale(1.0);
+    transform: scale(1.05);
     cursor: pointer;
-    box-shadow: 0 0px 25px #09b5;
 }
 
 .footer-bottom {

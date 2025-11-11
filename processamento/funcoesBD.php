@@ -14,11 +14,11 @@ function inserirFilme($nome, $descricao, $genero, $avaliacao, $ano, $arquivo){
 mysqli_query($conexao,$consulta);
 }
 
-function inserirSerie($nome, $descricao, $genero, $avaliacao, $ano, $arquivo){
+function inserirSerie($nomeS, $descricaoS, $generoS, $avaliacaoS, $anoS, $arquivoS){
 
     $conexao = conectarBD();
     $consulta = "INSERT INTO series (nome, descricao, genero, avaliacao, ano, imagem)
-                    VALUES('$nome','$descricao','$genero','$avaliacao','$ano','$arquivo')";
+                    VALUES('$nomeS','$descricaoS','$generoS','$avaliacaoS','$anoS','$arquivoS')";
 
 mysqli_query($conexao,$consulta);
 }  
@@ -26,8 +26,8 @@ mysqli_query($conexao,$consulta);
 function inserirPlano($nome, $descricao, $valorMensal, $valorAnual, $qualidade, $telas, $ativo, $anuncio){
 
     $conexao = conectarBD();
-    $consulta = "INSERT INTO plano (nome, descricao, valor_mensal, valor_anual, qualidade, telas, ativo, anuncio)
-                    VALUES('$nome','$descricao','$valorMensal','$valorAnual','$qualidade','$telas', '$ativo', '$anuncio')";
+    $consulta = "INSERT INTO plano (nome, descricao, valor_mensal, valor_anual, esta_ativo, qualidade_maxima, telas_simultaneas, tem_anuncios)
+                    VALUES('$nome','$descricao','$valorMensal','$valorAnual','$ativo','$qualidade','$telas','$anuncio')";
 
 mysqli_query($conexao,$consulta);
 }  

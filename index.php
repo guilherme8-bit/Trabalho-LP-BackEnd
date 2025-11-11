@@ -126,7 +126,7 @@
                 <section class="social-icons">
                     <a href="#"><img src="img/instagram.png" alt="instagrma"></a>
                     <a href="#"><img src="img/facebook.png" alt="facebook"></a>
-                    <a href="#"><img src="img/ex-twitter.png" alt="twitter"></a>
+                    <a href="#"><img src="img/ex-twitter.png" alt="twitter" class="x"></a>
                 </section>
             </section>
         </section>
