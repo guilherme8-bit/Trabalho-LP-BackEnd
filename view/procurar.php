@@ -1,10 +1,28 @@
+<?php
+    require "../processamento/funcoesBD.php";
+    $mensagem = "";
+    $listarFilmes = null;
+
+
+if (isset($_GET['procurar']) && !empty(trim($_GET['procurar']))) {
+    $filtro = trim($_GET['procurar']);
+    $listarFilmes = procurarFilmesESeries($filtro);
+
+    
+if (mysqli_num_rows($listarFilmes) == 0) {
+        $mensagem = "Não encontrado";
+    }
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Filme</title>
-    <link rel="stylesheet" href="../estilizacao/filme.css">
+    <title>Procurar</title>
+    <link rel="stylesheet" href="../estilizacao/procurar.css">
 </head>
 <body>
     <header class="navbar">
@@ -27,37 +45,34 @@
             </section>
         </nav>
     </header>
-    <h2>Filmes</h2>
-            <section class="bloco-principal">
-                <h3>Ação</h3>
-                <section class="flex-filmes">
-                    <section class="card"><img src="../img/filmes/batman.jpg"></section>
-                    <section class="card"><img src="../img/filmes/aquaman.jpg"></section>
-                    <section class="card"><img src="../img/filmes/jw.jpg"></section>
-                    <section class="card"><img src="../img/filmes/mi.jpg"></section>
-                    <section class="card"><img src="../img/filmes/John_Wick_2.jpg"></section>
-                    <section class="card"><img src="../img/filmes/dw.webp"></section>
-                    <section class="card"><img src="../img/filmes/logan.webp"></section>
-                    <section class="card"><img src="../img/filmes/transformers.jpe"></section>
-                    <section class="card"><img src="../img/filmes/avatar.jpg"></section>
-                    <section class="card"><img src="../img/filmes/tropa-de-elite.webp"></section> 
-                </section>
-              
-                <h3>Aventura</h3>
-                <section class="flex-filmes">
-                    <section class="card"><img src="../img/filmes/O_Rei_Leão_2019.jpg"></section>
-                    <section class="card"><img src="../img/filmes/hobbit.jpg"></section>
-                    <section class="card"><img src="../img/filmes/tintin.jpg"></section>
-                    <section class="card"><img src="../img/filmes/pj.jpg"></section>
-                    <section class="card"><img src="../img/filmes/Piratas do Caribe 5.jpg"></section>
-                    <section class="card"><img src="../img/filmes/jumanji.webp"></section>
-                    <section class="card"><img src="../img/filmes/dragao.jpg"></section>
-                    <section class="card"><img src="../img/filmes/ps.jpeg"></section>
-                    <section class="card"><img src="../img/filmes/Alice-In-Wonderland-Theatrical-Poster.jpg"></section>
-                    <section class="card"><img src="../img/filmes/moana.jpg"></section>
-                </section>
-            </section>
-            <footer class="main-footer">
+    <section>
+        <form method="GET" action="">
+            <label for="nome">
+                <section class="titulo">
+                    <img class="lupa" src="../img/lupa.png" alt="">
+                    <h3>Procurar</h3>
+                </section>  
+            </label>
+                <input type="procurar" id="procurar" name="procurar">  
+        </form>
+        <?php
+        if ($mensagem != "") {
+            echo "<p class='mensagem'>$mensagem</p>";
+        } elseif (isset($listarFilmes) && mysqli_num_rows($listarFilmes) > 0) {
+    
+            while ($filme = mysqli_fetch_assoc($listarFilmes)) {
+                echo "<section class='bloco-principal'>";
+                echo "<h3>{$filme['nome']}</h3>";
+                echo "<img src='{$filme['imagens']}' width='200'>";
+                echo "</section>";
+    }
+} 
+
+        
+        ?>
+
+    </section>
+    <footer class="main-footer">
         <section class="footer-content">
             <section class="footer-section about">
                 <h3>MOVIEFLIX</h3>
@@ -88,6 +103,8 @@
             &copy; Movieflix. Todos os direitos reservados.
         </section>
     </footer>
-            
+</body>
+</html>
+    
 </body>
 </html>

@@ -6,20 +6,31 @@ function conectarBD(){
 }
 
 function inserirFilme($nome, $descricao, $genero, $avaliacao, $ano, $arquivo){
-
-    $imagemBinaria = file_get_contents($arquivo['tmp_name']);
-
     $conexao = conectarBD();
-    $consulta = "INSERT INTO filmes (nome, descricao, genero, avaliacao, ano, imagem)
-                    VALUES('$nome','$descricao','$genero','$avaliacao','$ano','$imagemBinaria')";
+
+    $pasta = "../arquivos/";
+    $nomeArquivo = basename($arquivo['name']);
+    $caminhoCompleto = $pasta . $nomeArquivo; 
+
+    move_uploaded_file($arquivo['tmp_name'], $caminhoCompleto);
+
+    $consulta = "INSERT INTO filmes (nome, descricao, genero, avaliacao, ano, imagens)
+                    VALUES('$nome','$descricao','$genero','$avaliacao','$ano','$caminhoCompleto')";
 
 mysqli_query($conexao,$consulta);
 }
 
 function inserirSerie($nomeS, $descricaoS, $generoS, $avaliacaoS, $anoS, $arquivoS){
     $conexao = conectarBD();
+
+    $pastaS = "../arquivos/";
+    $nomeArquivoS = basename($arquivoS['name']);
+    $caminhoCompletoS = $pastaS . $nomeArquivoS;
+    
+    move_uploaded_file($arquivoS['tmp_name'], $caminhoCompletoS);
+
     $consulta = "INSERT INTO series (nome, descricao, genero, avaliacao, ano, imagem)
-                    VALUES('$nomeS','$descricaoS','$generoS','$avaliacaoS','$anoS','$arquivoS')";
+                    VALUES('$nomeS','$descricaoS','$generoS','$avaliacaoS','$anoS','$caminhoCompletoS')";
 
 mysqli_query($conexao,$consulta);
 }  
@@ -34,10 +45,24 @@ mysqli_query($conexao,$consulta);
 }
 
 function retornarFilmes(){
+
     $conexao = conectarBD();
-    $consulta = "SELECT * FROM filmes";
-    $listaFilmes = mysqli_query($conexao, $consulta);
-    return $listaFilmes;
+    $consulta = "SELECT nome, imagens FROM filmes";
+    $listarFilmes = mysqli_query($conexao,$consulta);
+    return $listarFilmes;
+}
+
+function procurarFilmesESeries($filtro){
+    $conexao = conectarBD();
+    $procurar = "SELECT nome, imagens, 'filme' AS tipo 
+        FROM filmes 
+        WHERE nome LIKE '%$filtro%'
+        UNION
+        SELECT nome, imagem AS imagens, 'serie' AS tipo 
+        FROM series 
+        WHERE nome LIKE '%$filtro%'";
+    $procFilmesESeries = mysqli_query($conexao,$procurar);
+    return $procFilmesESeries;
 }
 
 ?>

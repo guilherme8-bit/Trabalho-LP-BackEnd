@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 06/11/2025 às 20:10
+-- Tempo de geração: 11/11/2025 às 19:06
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -34,7 +34,7 @@ CREATE TABLE `filmes` (
   `Genero` enum('ação','aventura','romance','comedia','drama','suspense') NOT NULL,
   `Avaliacao` float DEFAULT NULL,
   `Ano` year(4) NOT NULL,
-  `Imagem` blob NOT NULL
+  `Imagens` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -81,7 +81,7 @@ CREATE TABLE `series` (
   `Genero` enum('ação','aventura','romance','comedia','drama','suspense') NOT NULL,
   `Avaliacao` float DEFAULT NULL,
   `Ano` year(4) NOT NULL,
-  `Imagem` blob NOT NULL
+  `Imagem` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -145,7 +145,7 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de tabela `filmes`
 --
 ALTER TABLE `filmes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de tabela `minha_lista`
