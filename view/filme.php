@@ -1,3 +1,6 @@
+<?php
+    require_once "../processamento/funcoesBD.php"
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -11,7 +14,7 @@
         <p class="logo">CINEPRIME</p>
         <nav class="nav-links">
             <a href="../view/home.php" class="icon"><img src="../img/house.png">Home</a>
-            <a href="#" class="icon"><img src="../img/lupa.png">Procurar</a>
+            <a href="../view/procurar.php" class="icon"><img src="../img/lupa.png">Procurar</a>
             <a href="#" class="icon"><img src="../img/mais.png">Minha lista</a>
             <a href="../view/filme.php" class="icon"><img src="../img/camera.png">Filmes</a>
             <a href="../view/serie.php" class="icon"><img src="../img/tv_show.png">Séries</a>
@@ -31,16 +34,14 @@
             <section class="bloco-principal">
                 <h3>Ação</h3>
                 <section class="flex-filmes">
-                    <section class="card"><img src="../img/filmes/batman.jpg"></section>
-                    <section class="card"><img src="../img/filmes/aquaman.jpg"></section>
-                    <section class="card"><img src="../img/filmes/jw.jpg"></section>
-                    <section class="card"><img src="../img/filmes/mi.jpg"></section>
-                    <section class="card"><img src="../img/filmes/John_Wick_2.jpg"></section>
-                    <section class="card"><img src="../img/filmes/dw.webp"></section>
-                    <section class="card"><img src="../img/filmes/logan.webp"></section>
-                    <section class="card"><img src="../img/filmes/transformers.jpe"></section>
-                    <section class="card"><img src="../img/filmes/avatar.jpg"></section>
-                    <section class="card"><img src="../img/filmes/tropa-de-elite.webp"></section> 
+                    <?php
+                        $listarFilmes = retornarFilmes('Ação');
+                        while ($filme = mysqli_fetch_assoc($listarFilmes)) {
+                            echo "<section class='card'>";
+                            echo "<img src='{$filme['imagens']}'>";
+                            echo "</section>";
+                        }
+                    ?>
                 </section>
               
                 <h3>Aventura</h3>

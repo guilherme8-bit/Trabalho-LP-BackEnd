@@ -1,7 +1,7 @@
 <?php
 function conectarBD(){
 
-    $conexao = mysqli_connect("localhost","root","","cineprime");
+    $conexao = mysqli_connect("localhost","root","admin","cineprime");
     return($conexao);
 }
 
@@ -44,11 +44,19 @@ function inserirPlano($nome, $descricao, $valorMensal, $valorAnual, $qualidade, 
 mysqli_query($conexao,$consulta);
 }
 
-function retornarFilmes(){
+function retornarFilmes($genero = null){
 
     $conexao = conectarBD();
-    $consulta = "SELECT nome, imagens FROM filmes";
-    $listarFilmes = mysqli_query($conexao,$consulta);
+    
+    if($genero){
+        $stmt = mysqli_prepare($conexao, "SELECT nome, imagens FROM filmes WHERE Genero = ?");
+        mysqli_stmt_bind_param($stmt, "s", $genero);
+        mysqli_stmt_execute($stmt);
+        $listarFilmes = mysqli_stmt_get_result($stmt);
+    }else{
+        $consulta = "SELECT nome, imagens FROM filmes";
+        $listarFilmes = mysqli_query($conexao,$consulta);
+    }
     return $listarFilmes;
 }
 
