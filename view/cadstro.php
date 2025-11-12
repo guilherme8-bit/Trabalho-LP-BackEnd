@@ -23,7 +23,7 @@
                     <img src="../img/voltar.png" alt="Voltar">
                 </a>
                 <label for="nome">Nome Completo</label>
-                <input type="text" id="nome" name="ipuntNome">
+                <input type="text" id="nome" name="inputNome">
 
                 <label for="cpf">CPF</label>
                 <input type="text" id="cpf" name="inputCPF">

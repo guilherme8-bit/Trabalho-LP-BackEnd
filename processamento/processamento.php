@@ -2,7 +2,7 @@
 session_start();
 require_once "funcoesBD.php";
 
-
+//cadastro de filme
 if(isset($_POST['inputNome']) && isset($_POST['inputDesc']) && isset($_POST['inputGen']) && isset($_POST['inputAva']) && isset($_POST['inputAno']) && isset($_FILES['arquivo'])){
     
     $nome = $_POST['inputNome'];
@@ -19,6 +19,7 @@ if(isset($_POST['inputNome']) && isset($_POST['inputDesc']) && isset($_POST['inp
     
 } 
 
+//cadastro de serie
 if(isset($_POST['inputNomeS']) && isset($_POST['inputDescS']) && isset($_POST['inputGenS']) && isset($_POST['inputAvaS']) && isset($_POST['inputAnoS']) && isset($_FILES['arquivoS'])){
     
     $nomeS = $_POST['inputNomeS'];
@@ -35,6 +36,7 @@ if(isset($_POST['inputNomeS']) && isset($_POST['inputDescS']) && isset($_POST['i
     
 }
 
+//cadastro de plano
 if(isset($_POST['inputNome']) && isset($_POST['inputDesc']) && isset($_POST['inputVM']) && isset($_POST['inputVA']) && isset($_POST['inputQM']) && isset($_POST['inputTS'])){
 
     $nome = $_POST['inputNome'];
@@ -53,6 +55,41 @@ if(isset($_POST['inputNome']) && isset($_POST['inputDesc']) && isset($_POST['inp
 
 }
 
+//cadastro de usuario
+if(isset($_POST['inputNome']) && isset($_POST['inputCPF'])&& isset($_POST['inputEmail'])&& isset($_POST['inputSenha'])){
+
+    $nomeU = $_POST['inputNome'];
+    $cpf = $_POST['inputCPF'];
+    $email = $_POST['inputEmail'];
+    $senha = $_POST['inputSenha'];
+
+    inserirUsuario($nomeU, $cpf, $email, $senha);
+     
+    header('Location:../view/cadstro.php');
+    die();
+}
+
+if (isset($_POST['inputEmail']) && isset($_POST['inputSenha'])) {
+    $email = $_POST['inputEmail'];
+    $senha = $_POST['inputSenha'];
+
+    $conexao = conectarBD();
+
+   
+    $sql = "SELECT * FROM usuario WHERE email = '$email' AND senha = '$senha'";
+    $resultado = mysqli_query($conexao, $sql);
+
+    if (mysqli_num_rows($resultado) > 0) {
+      
+        session_start();
+        $_SESSION['usuario'] = $email;
+
+        header("Location: ../view/home.php"); 
+        die();
+    } else {
+        echo "<script>alert('E-mail ou senha incorretos!'); window.location.href='../view/login.php';</script>";
+    }
+}
 
 
 ?>

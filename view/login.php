@@ -1,3 +1,8 @@
+<?php
+    require "../processamento/funcoesBD.php";
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,16 +28,15 @@
                     <img src="../img/voltar.png" alt="Voltar">
                 </a>
                 <label for="usuario">Usuario</label>
-                <input type="text" id="usuario" name="usuario">
+                <input type="text" id="usuario" name="inputEmail">
 
                 <label for="senha">Senha</label>
-                <input type="password" id="senha" name="senha">
+                <input type="password" id="senha" name="inputSenha">
                 
                 <section class="buttons">
                     <button type="submit" class="btn">Entrar</button>
                     <a href="../view/esqSenha.php" class="btn btn-link">Esqueci a senha</a>
                 </section>
-
                 <a href="../view/cadstro.php" class="link-cadastrar">Como me cadastrar?</a>
             </form>
         </section>
