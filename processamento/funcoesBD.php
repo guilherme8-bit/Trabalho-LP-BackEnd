@@ -1,7 +1,7 @@
 <?php
 function conectarBD(){
 
-    $conexao = mysqli_connect("localhost","root","admin","cineprime");
+    $conexao = mysqli_connect("localhost","root","","cineprime");
     return($conexao);
 }
 
@@ -47,8 +47,8 @@ mysqli_query($conexao,$consulta);
 function inserirUsuario($nomeU, $cpf, $email, $senha){
     
     $conexao = conectarBD();
-    $consulta = "INSERT INTO usuario (nome, cpf, Email, senha, id_plano)
-                    VALUES('$nomeU','$cpf','$email','$senha', 1)";
+    $consulta = "INSERT INTO usuario (nome, cpf, Email, senha)
+                    VALUES('$nomeU','$cpf','$email','$senha')";
     
     mysqli_query($conexao,$consulta);
 

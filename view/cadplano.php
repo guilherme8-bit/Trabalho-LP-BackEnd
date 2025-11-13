@@ -43,10 +43,10 @@
                 <input type="number" id="senha" name="inputVA" min="0">
 
                 <label for="senha">Qualidade Máxima</label>
-                <input type="number" id="senha" name="inputQM" min="0">
+                <input type="text" id="senha" name="inputQM" min="0">
 
                 <label for="senha">Telas Simultaneas</label>
-                <input type="number" id="senha" name="inputTS">
+                <input type="number" id="senha" name="inputTS" min="1" max="4">
 
                 <section class="opcoes">
                 <label>

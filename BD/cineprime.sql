@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 11/11/2025 às 19:06
+-- Tempo de geração: 13/11/2025 às 23:43
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -31,11 +31,18 @@ CREATE TABLE `filmes` (
   `id` int(11) NOT NULL,
   `Nome` varchar(50) NOT NULL,
   `Descricao` varchar(250) DEFAULT NULL,
-  `Genero` enum('ação','aventura','romance','comedia','drama','suspense') NOT NULL,
+  `Genero` enum('ação','aventura','romance','comedia','drama','suspense','terror') NOT NULL,
   `Avaliacao` float DEFAULT NULL,
   `Ano` year(4) NOT NULL,
   `Imagens` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Despejando dados para a tabela `filmes`
+--
+
+INSERT INTO `filmes` (`id`, `Nome`, `Descricao`, `Genero`, `Avaliacao`, `Ano`, `Imagens`) VALUES
+(8, 'batman', 'aaaaaaaaaaaaaaaa', 'ação', 10, '2006', '../arquivos/batman.jpg');
 
 -- --------------------------------------------------------
 
@@ -45,9 +52,26 @@ CREATE TABLE `filmes` (
 
 CREATE TABLE `minha_lista` (
   `id` int(11) NOT NULL,
-  `id_usuario` int(11) NOT NULL,
-  `id_filme` int(11) NOT NULL,
-  `id-serie` int(11) NOT NULL
+  `id_usuario` int(11) DEFAULT NULL,
+  `id_filme` int(11) DEFAULT NULL,
+  `id-serie` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `pagamentos`
+--
+
+CREATE TABLE `pagamentos` (
+  `id` int(11) NOT NULL,
+  `nome` varchar(150) NOT NULL,
+  `cpf` varchar(50) NOT NULL,
+  `numero_cartao` int(11) NOT NULL,
+  `data_validade` date NOT NULL,
+  `cod_seguranca` int(11) NOT NULL,
+  `nome_plano` varchar(100) NOT NULL,
+  `parcelamento` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -84,6 +108,13 @@ CREATE TABLE `series` (
   `Imagem` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Despejando dados para a tabela `series`
+--
+
+INSERT INTO `series` (`id`, `Nome`, `Descricao`, `Genero`, `Avaliacao`, `Ano`, `Imagem`) VALUES
+(3, 'Flash', 'rapido', 'ação', 10, '2014', '../arquivos/flash.jpg');
+
 -- --------------------------------------------------------
 
 --
@@ -96,7 +127,7 @@ CREATE TABLE `usuario` (
   `CPF` varchar(11) NOT NULL,
   `Email` varchar(50) NOT NULL,
   `Senha` varchar(50) NOT NULL,
-  `id_plano` int(11) NOT NULL
+  `id_plano` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -117,6 +148,12 @@ ALTER TABLE `minha_lista`
   ADD KEY `id-serie` (`id-serie`),
   ADD KEY `id_filme` (`id_filme`),
   ADD KEY `id_usuario` (`id_usuario`);
+
+--
+-- Índices de tabela `pagamentos`
+--
+ALTER TABLE `pagamentos`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Índices de tabela `plano`
@@ -145,7 +182,7 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de tabela `filmes`
 --
 ALTER TABLE `filmes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de tabela `minha_lista`
@@ -154,22 +191,28 @@ ALTER TABLE `minha_lista`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT de tabela `pagamentos`
+--
+ALTER TABLE `pagamentos`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT de tabela `plano`
 --
 ALTER TABLE `plano`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de tabela `series`
 --
 ALTER TABLE `series`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de tabela `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Restrições para tabelas despejadas

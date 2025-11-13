@@ -68,7 +68,7 @@ if(isset($_POST['inputNomeU']) && isset($_POST['inputCPF'])&& isset($_POST['inpu
     header('Location:../view/cadstro.php');
     die();
 }
-
+//validar login
 if (isset($_POST['inputEmailL']) && isset($_POST['inputSenhaL'])) {
     $email = $_POST['inputEmailL'];
     $senha = $_POST['inputSenhaL'];
