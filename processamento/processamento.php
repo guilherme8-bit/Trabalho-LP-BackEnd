@@ -56,35 +56,33 @@ if(isset($_POST['inputNome']) && isset($_POST['inputDesc']) && isset($_POST['inp
 }
 
 //cadastro de usuario
-if(isset($_POST['inputNome']) && isset($_POST['inputCPF'])&& isset($_POST['inputEmail'])&& isset($_POST['inputSenha'])){
+if(isset($_POST['inputNomeU']) && isset($_POST['inputCPF'])&& isset($_POST['inputEmail'])&& isset($_POST['inputSenha'])){
 
-    $nomeU = $_POST['inputNome'];
+    $nomeU = $_POST['inputNomeU'];
     $cpf = $_POST['inputCPF'];
     $email = $_POST['inputEmail'];
     $senha = $_POST['inputSenha'];
 
     inserirUsuario($nomeU, $cpf, $email, $senha);
-     
+
     header('Location:../view/cadstro.php');
     die();
 }
 
-if (isset($_POST['inputEmail']) && isset($_POST['inputSenha'])) {
-    $email = $_POST['inputEmail'];
-    $senha = $_POST['inputSenha'];
+if (isset($_POST['inputEmailL']) && isset($_POST['inputSenhaL'])) {
+    $email = $_POST['inputEmailL'];
+    $senha = $_POST['inputSenhaL'];
 
     $conexao = conectarBD();
 
-   
     $sql = "SELECT * FROM usuario WHERE email = '$email' AND senha = '$senha'";
     $resultado = mysqli_query($conexao, $sql);
 
     if (mysqli_num_rows($resultado) > 0) {
-      
         session_start();
         $_SESSION['usuario'] = $email;
 
-        header("Location: ../view/home.php"); 
+        header("Location: ../view/usuarios.php"); 
         die();
     } else {
         echo "<script>alert('E-mail ou senha incorretos!'); window.location.href='../view/login.php';</script>";

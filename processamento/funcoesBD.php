@@ -44,8 +44,18 @@ function inserirPlano($nome, $descricao, $valorMensal, $valorAnual, $qualidade, 
 mysqli_query($conexao,$consulta);
 }
 
-function retornarFilmes($genero = null){
+function inserirUsuario($nomeU, $cpf, $email, $senha){
+    
+    $conexao = conectarBD();
+    $consulta = "INSERT INTO usuario (nome, cpf, Email, senha, id_plano)
+                    VALUES('$nomeU','$cpf','$email','$senha', 1)";
+    
+    mysqli_query($conexao,$consulta);
 
+}
+
+function retornarFilmes($genero = null){
+    
     $conexao = conectarBD();
     
     if($genero){
@@ -73,14 +83,11 @@ function procurarFilmesESeries($filtro){
     return $procFilmesESeries;
 }
 
-function inserirUsuario($nomeU, $cpf, $email, $senha){
-    
+function retornarUsuarios(){
     $conexao = conectarBD();
-    $consulta = "INSERT INTO usuario (nome, cpf, Email, senha, id_plano)
-                    VALUES('$nomeU','$cpf','$email','$senha', 1)";
-    
-    mysqli_query($conexao,$consulta);
-
+    $consulta = "SELECT * FROM usuario";
+    $listarUsuarios = mysqli_query($conexao, $consulta);
+    return $listarUsuarios;
 }
 
 ?>

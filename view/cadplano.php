@@ -11,17 +11,17 @@
         <p class="logo">CINEPRIME</p>
         <nav class="nav-links">
             <a href="../view/home.php" class="icon"><img src="../img/house.png">Home</a>
-            <a href="#" class="icon"><img src="../img/lupa.png">Procurar</a>
-            <a href="#" class="icon"><img src="../img/mais.png">Minha lista</a>
+            <a href="../view/procurar.php" class="icon"><img src="../img/lupa.png">Procurar</a>
+            <a href="../view/minha_lista.php" class="icon"><img src="../img/mais.png">Minha lista</a>
             <a href="../view/filme.php" class="icon"><img src="../img/camera.png">Filmes</a>
             <a href="../view/serie.php" class="icon"><img src="../img/tv_show.png">Séries</a>
             <section class="perfil">
-                <img src="../img/usuario.png" alt="Perfil" class="perfil-img">
+                <img src="../img/default.png" alt="Perfil" class="perfil-img">
                 <section class="menu-perfil">
                     <a href="#">Meu Perfil</a>
                     <a href="../view/cadfilme.php">Cadastrar filmes</a>
                     <a href="../view/cadserie.php">Cadastrar séries</a>
-                    <a href="../view/login.php">Sair</a>
+                    <a href="../view/usuarios.php">Sair</a>
                 </section>
             </section>
         </nav>
@@ -67,7 +67,7 @@
     <footer class="main-footer">
         <section class="footer-content">
             <section class="footer-section about">
-                <h3>MOVIEFLIX</h3>
+                <h3>CINEPRIME</h3>
                 <p>O melhor lugar para maratonar filmes e séries. Cancelamento fácil a qualquer momento.</p>
             </section>
 
@@ -92,7 +92,7 @@
         </section>
 
         <section class="footer-bottom">
-            &copy; Movieflix. Todos os direitos reservados.
+            &copy; Cineprime. Todos os direitos reservados.
         </section>
     </footer>
 </body>

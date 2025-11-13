@@ -1,7 +1,9 @@
 body{
     font-family: Arial, Helvetica, sans-serif;
-    background-color: #00283e;
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background:linear-gradient(rgb(0, 40, 65), rgb(0, 29, 70));
 }
 
 .navbar{
@@ -18,7 +20,7 @@ body{
     color: #09b;
     text-shadow: 0px 0px 15px #09b7;
     font-weight: 800;
-    padding-left: 1.5em;
+    padding-left: 1.8em;
 }
 
 .nav-links img {
@@ -91,103 +93,6 @@ body{
     display: block;
 }
 
-h2{
-    color: #fff;
-    font-size: 2rem;
-    margin: 40px;
-    padding-left: 20px;
-}
-
-form{
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-
-label {
-    
-    color: #fff;
-    font-size: 1em;
-    font-weight: 500;
-    margin-left: 8px;
-    margin-bottom: -5px;
-    margin-top: 5%;
-}
-
-input {
-    width: 40%;
-    padding: 15px;
-    border-radius: 25px;
-    border: none;
-    background-color: #000;
-    color: #fff;
-    outline: none;
-    font-size: 1em;
-    margin-bottom: 12px;
-    box-sizing: border-box;
-    margin-left: 10%;
-}
-
-
-
-.casa{
-    width: 50px;
-    height: 50px;
-    position: absolute;
-    right: 10px;
-    margin-right: 11%;
-    margin-top: 3%;
-    filter: invert(1);
-}
-
-h2{
-    color: white;
-    position: absolute;
-    right: 6%;
-    margin-top: 68px;
-}
-
-a{
-    color: white;
-}
-
-h3{
-    color: white;
-    text-wrap: wrap;
-}
-
-.titulo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-left: 10%;
-  margin-top: 1%;
-  color: #fff;
-}
-
-.lupa {
-  width: 30px;
-  height: 30px;
-  filter: invert(1);
-}
-
-nav{
-    position: relative;
-}
-
-.card {
-    flex: 0 0 auto;
-    width: 210px;
-    overflow: hidden;
-    transition: transform 0.3s ease;
-    scroll-snap-align: start;
-}
-
-.card img {
-    width: 100%;
-    height: 300px;
-    border-radius: 10px;
-}
 
 .main-footer {
     background-color: #003; 
@@ -259,7 +164,7 @@ nav{
 }
 
 .social-icons img:hover {
-    transform: scale(1.0);
+    transform: scale(1.05);
     cursor: pointer;
 }
 
@@ -271,4 +176,3 @@ nav{
     font-size: 0.85em;
     border-top: 1px solid #012;
 }
-

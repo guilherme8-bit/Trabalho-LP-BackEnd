@@ -107,7 +107,7 @@
     <footer class="main-footer">
         <section class="footer-content">
             <section class="footer-section about">
-                <h3>MOVIEFLIX</h3>
+                <h3>CINEPRIME</h3>
                 <p>O melhor lugar para maratonar filmes e séries. Cancelamento fácil a qualquer momento.</p>
             </section>
 
@@ -132,7 +132,7 @@
         </section>
 
         <section class="footer-bottom">
-            &copy; <span id="current-year"></span> Movieflix. Todos os direitos reservados.
+            &copy; Cineprime. Todos os direitos reservados.
         </section>
     </footer>
 </body>

@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../estilizacao/cadserie.css">
-    <title>cadserie</title>
+    <link rel="stylesheet" href="../estilizacao/minha_lista.css">
+    <title>Minha_lista</title>
 </head>
 <body>
     <header class="navbar">
@@ -20,43 +20,13 @@
                 <section class="menu-perfil">
                     <a href="#">Meu Perfil</a>
                     <a href="../view/cadfilme.php">Cadastrar filmes</a>
+                    <a href="../view/cadserie.php">Cadastrar séries</a>
                     <a href="../view/cadplano.php">Cadastrar planos</a>
-                    <a href="../view/usuarios.php">Sair</a>
+                    <a href="../view/login.php">Sair</a>
                 </section>
             </section>
         </nav>
     </header>
-    <main class="login-container">
-        <section class="login-box">
-            <h3 class="titulo-filme">Cadastro de Séries</h3>
-            <form action="../processamento/processamento.php" method="POST" enctype="multipart/form-data">
-                <label for="nome">Nome</label>
-                <input type="text" id="nome" name="inputNomeS">
-
-                <label for="descrição">Descrição</label>
-                <textarea id="descricao" name="inputDescS"></textarea>
-
-                <label for="genero">Gênero</label>
-                <input type="text" id="genero" name="inputGenS">
-                
-                <label for="avaliacao">Avaliação</label>
-                <input type="number" id="avaliacao" name="inputAvaS" min="0" max="10">
-
-                <label for="ano">Ano</label>
-                <input type="number" id="ano" name="inputAnoS" min="1900" max="2100">
-                <section>
-                    <p class="cor-titulo">Selecionar imagem da Série:</p>
-                </section>
-                <label for="fileInput" class="label-botao">
-                    Escolher arquivo
-                    <input type="file" id="fileInput" name="arquivoS" class="botao-arquivo">
-                </label>
-                <section class="buttons">
-                    <button type="submit" class="btn">Cadastrar</button>
-                </section>
-            </form>
-        </section>
-    </main>
 
     <footer class="main-footer">
         <section class="footer-content">
@@ -86,7 +56,7 @@
         </section>
 
         <section class="footer-bottom">
-            &copy; Cineprime. Todos os direitos reservados.
+            &copy;  Cineprime. Todos os direitos reservados.
         </section>
     </footer>
 </body>

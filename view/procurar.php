@@ -29,8 +29,8 @@ if (mysqli_num_rows($listarFilmes) == 0) {
         <p class="logo">CINEPRIME</p>
         <nav class="nav-links">
             <a href="../view/home.php" class="icon"><img src="../img/house.png">Home</a>
-            <a href="#" class="icon"><img src="../img/lupa.png">Procurar</a>
-            <a href="#" class="icon"><img src="../img/mais.png">Minha lista</a>
+            <a href="../view/procurar.php" class="icon"><img src="../img/lupa.png">Procurar</a>
+            <a href="../view/minha_lista.php" class="icon"><img src="../img/mais.png">Minha lista</a>
             <a href="../view/filme.php" class="icon"><img src="../img/camera.png">Filmes</a>
             <a href="../view/serie.php" class="icon"><img src="../img/tv_show.png">Séries</a>
             <section class="perfil">
@@ -53,7 +53,7 @@ if (mysqli_num_rows($listarFilmes) == 0) {
                     <h3>Procurar</h3>
                 </section>  
             </label>
-                <input type="procurar" id="procurar" name="procurar">  
+                <input type="procurar" id="procurar" name="procurar" placeholder="Buscar filmes ou séries...">  
         </form>
         <?php
         if ($mensagem != "") {
@@ -62,8 +62,8 @@ if (mysqli_num_rows($listarFilmes) == 0) {
     
             while ($filme = mysqli_fetch_assoc($listarFilmes)) {
                 echo "<section class='bloco-principal'>";
+                echo "<section class=\"card\"><img src='{$filme['imagens']}'></section>";
                 echo "<h3>{$filme['nome']}</h3>";
-                echo "<img src='{$filme['imagens']}' width='200'>";
                 echo "</section>";
     }
 } 
@@ -75,7 +75,7 @@ if (mysqli_num_rows($listarFilmes) == 0) {
     <footer class="main-footer">
         <section class="footer-content">
             <section class="footer-section about">
-                <h3>MOVIEFLIX</h3>
+                <h3>CINEPRIME</h3>
                 <p>O melhor lugar para maratonar filmes e séries. Cancelamento fácil a qualquer momento.</p>
             </section>
 
@@ -100,7 +100,7 @@ if (mysqli_num_rows($listarFilmes) == 0) {
         </section>
 
         <section class="footer-bottom">
-            &copy; Movieflix. Todos os direitos reservados.
+            &copy; Cineprime. Todos os direitos reservados.
         </section>
     </footer>
 </body>

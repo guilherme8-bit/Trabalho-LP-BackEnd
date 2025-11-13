@@ -1,40 +1,44 @@
+<?php
+    require_once "../processamento/funcoesBD.php"
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../estilizacao/login.css">
-    <title>Login</title>
+    <link rel="stylesheet" href="../estilizacao/usuarios.css">
+    <title>usuarios</title>
 </head>
 <body>
     <header class="navbar">
         <p class="logo">CINEPRIME</p>
         <section class="nav-links">
-            <a href="../index.php">Sair</a>
+            <a href="../view/login.php">Sair</a>
         </section>
     </header>
-    <main class="login-container">
-        <section class="login-box">
-            <section class="icone-usuario">
-                <img src="../img/usuario.png" alt="usuário">
-            </section>
-            <form action="../processamento/processamento.php" method="POST">
-                <a href="../index.php" class="voltar">
-                    <img src="../img/voltar.png" alt="Voltar">
-                </a>
-                <label for="usuario">Usuario</label>
-                <input type="text" id="usuario" name="inputEmailL">
 
-                <label for="senha">Senha</label>
-                <input type="password" id="senha" name="inputSenhaL">
-                
-                <section class="buttons">
-                    <button type="submit" class="btn">Entrar</button>
-                    <a href="../view/esqSenha.php" class="btn btn-link">Esqueci a senha</a>
+    <main class="container">
+        <h1>Quem está Assitindo?</h1>
+        <section class="perfil-container">
+        <?php
+            $listarUsuarios = retornarUsuarios();
+            while($usuario = mysqli_fetch_assoc($listarUsuarios)){
+                echo "<a href='../view/home.php?id={$usuario['id']}' class='perfil'>";
+                echo "<section class='perfil-icon'>";
+                echo "<img src='../img/default.png' alt='{$usuario['Nome']}'>";
+                echo "</section>";
+                echo "<p>{$usuario['Nome']}</p>";
+                echo "</a>";
+            }
+        ?>
+
+        <a href="cadstro.php" class="add-conta">
+                <section class="add-icon">
+                    <img src="../img/mais.png" alt="Adicionar perfil">
                 </section>
-
-                <a href="../view/cadstro.php" class="link-cadastrar">Como me cadastrar?</a>
-            </form>
+                <p >Adicionar perfil</p>
+            </a>
         </section>
     </main>
 
@@ -66,7 +70,7 @@
         </section>
 
         <section class="footer-bottom">
-            &copy; Cineprime. Todos os direitos reservados.
+            &copy;  Cineprime. Todos os direitos reservados.
         </section>
     </footer>
 </body>

@@ -1,0 +1,227 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background:linear-gradient(rgb(0, 40, 65), rgb(0, 29, 70));
+}
+
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #001d;
+    color: #fff;
+    padding: 10px 20px;
+}
+
+.logo{
+    font-size: 25px;
+    color: #09b;
+    text-shadow: 0px 0px 15px #09b7;
+    font-weight: 800;
+    padding-left: 1.8em;
+}
+
+.nav-links a{
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 8px 30px;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    color: #fff;
+    text-align: center;
+}
+
+.container h1{
+    font-size: 3rem;
+    margin-bottom: 50px;
+}
+
+.perfil-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.perfil {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: #000;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.perfil:hover{
+    transform: scale(1.02);
+}
+
+.perfil-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 3px solid #000;
+    background-color: #333;
+    object-fit: cover;
+    margin-bottom: 10px;
+    box-shadow: 0 0 10px #0006;
+    transition: transform 0.3s ease;
+}
+
+.perfil-icon img {
+    width: 100px;
+    height: 100px;
+    filter: invert(1);
+}
+
+.perfil:hover .perfil-icon {
+    border-color: #111;
+    background-color: #444;
+}
+
+.perfil p {
+    font-size: 1.1rem;
+    color: #fff;
+    margin: 5px 0 0 0;
+}
+
+.add-conta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: #000;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.add-conta:hover {
+    transform: scale(1.02);
+    color: #fff;
+}
+
+.add-icon {
+    width: 150px;
+    height: 150px;
+    border: 3px solid #000;
+    border-radius: 10px;
+    background-color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.add-conta:hover .add-icon {
+    border-color: #111;
+    background-color: #444;
+}
+
+.add-icon img {
+    width: 100px;
+    height: 100px;
+    filter: invert(1);
+}
+
+.add-conta p {
+    margin-top: 15px;
+    font-size: 1rem;
+    text-decoration: none;
+    color: #fff;
+}
+
+.main-footer {
+    background-color: #003; 
+    color: #aebfd1;
+    font-family: Arial, sans-serif;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 50px;
+    padding: 40px 50px;
+    max-width: 1000px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+
+.footer-section {
+    flex: 1; 
+    min-width: 200px;
+    margin: 15px;
+}
+
+.footer-section h3 {
+    color: #ffffff;
+    margin-bottom: 20px;
+    font-size: 1.2em;
+    border-bottom: 1px solid #00285e;
+    padding-bottom: 5px;
+}
+
+
+.footer-section.links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section.links ul li {
+    margin-bottom: 10px;
+}
+
+.footer-section.links a {
+    text-decoration: none;
+    color: #aebfd1;
+    transition: color 0.3s;
+}
+
+.footer-section.links a:hover {
+    color: #00b0d9;
+    text-decoration: underline; 
+}
+
+.social-icons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.social-icons img {
+    width: 30px;
+    height: 30px;
+    border: none;
+    transition: transform 0.3s ease-in-out;
+}
+
+.social-icons .x{
+    filter: invert(1);
+}
+
+.social-icons img:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+.footer-bottom {
+    background-color: #002; 
+    color: #778899;
+    text-align: center;
+    padding: 15px 0;
+    font-size: 0.85em;
+    border-top: 1px solid #012;
+}
