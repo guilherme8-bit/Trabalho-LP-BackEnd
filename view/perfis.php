@@ -1,13 +1,14 @@
 <?php
-    require_once "../processamento/funcoesBD.php"
+    require_once "../processamento/funcoesBD.php";
 ?>
+
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Filme</title>
-    <link rel="stylesheet" href="../estilizacao/filme.css">
+    <link rel="stylesheet" href="../estilizacao/perfis.css">
+    <title>Meu perfil</title>
 </head>
 <body>
     <header class="navbar">
@@ -21,7 +22,7 @@
             <section class="perfil">
                 <img src="../img/default.png" alt="Perfil" class="perfil-img">
                 <section class="menu-perfil">
-                    <a href="../view/perfis.php">Perfis</a>
+                    <a href="./view/perfis.php">Perfis</a>
                     <a href="../view/cadfilme.php">Cadastrar filmes</a>
                     <a href="../view/cadserie.php">Cadastrar séries</a>
                     <a href="../view/cadplano.php">Cadastrar planos</a>
@@ -30,35 +31,30 @@
             </section>
         </nav>
     </header>
-    <h2>Filmes</h2>
-            <section class="bloco-principal">
-                <h3>Ação</h3>
-                <section class="flex-filmes">
-                    <?php
-                        $listarFilmes = retornarFilmes('Ação');
-                        while ($filme = mysqli_fetch_assoc($listarFilmes)) {
-                            echo "<section class='card'>";
-                            echo "<img src='{$filme['imagens']}'>";
-                            echo "</section>";
-                        }
-                    ?>
-                </section>
-              
-                <h3>Aventura</h3>
-                <section class="flex-filmes">
-                    <section class="card"><img src="../img/filmes/O_Rei_Leão_2019.jpg"></section>
-                    <section class="card"><img src="../img/filmes/hobbit.jpg"></section>
-                    <section class="card"><img src="../img/filmes/tintin.jpg"></section>
-                    <section class="card"><img src="../img/filmes/pj.jpg"></section>
-                    <section class="card"><img src="../img/filmes/Piratas do Caribe 5.jpg"></section>
-                    <section class="card"><img src="../img/filmes/jumanji.webp"></section>
-                    <section class="card"><img src="../img/filmes/dragao.jpg"></section>
-                    <section class="card"><img src="../img/filmes/ps.jpeg"></section>
-                    <section class="card"><img src="../img/filmes/Alice-In-Wonderland-Theatrical-Poster.jpg"></section>
-                    <section class="card"><img src="../img/filmes/moana.jpg"></section>
-                </section>
-            </section>
-            <footer class="main-footer">
+
+    <main>
+        <h1>Perfis</h1>
+        <section class="flex-perfis">
+            <?php
+                $listarUsuarios = retornarUsuarios();
+                $cores = ["#ff4757", "#1e90ff", "#2ed573", "#3742fa"];
+                while($usuario = mysqli_fetch_assoc($listarUsuarios)){
+                    $cor = $cores[$usuario['id'] % count($cores)];
+                    echo "<section class='card'>";
+                    echo "<section class='perfil-icon' style='background-color: {$cor};'>";
+                    echo "<img src='../img/default.png' alt='{$usuario['Nome']}'>";
+                    echo "</section>";
+                    echo "<p>Nome: {$usuario['Nome']}</p>";
+                    echo "<p>Email: {$usuario['Email']}</p>";
+                    echo "<p>CPF: {$usuario['CPF']}</p>";
+                    echo "<p>Senha: {$usuario['Senha']}</p>";
+                    echo "</section>";
+                }
+            ?>
+        </section>
+    </main>
+
+    <footer class="main-footer">
         <section class="footer-content">
             <section class="footer-section about">
                 <h3>CINEPRIME</h3>
@@ -86,9 +82,8 @@
         </section>
 
         <section class="footer-bottom">
-            &copy; Cineprime. Todos os direitos reservados.
+            &copy;  Cineprime. Todos os direitos reservados.
         </section>
     </footer>
-            
 </body>
 </html>

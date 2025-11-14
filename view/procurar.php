@@ -36,7 +36,7 @@ if (mysqli_num_rows($listarFilmes) == 0) {
             <section class="perfil">
                 <img src="../img/usuario.png" alt="Perfil" class="perfil-img">
                 <section class="menu-perfil">
-                    <a href="#">Meu Perfil</a>
+                    <a href="../view/perfis.php">Perfis</a>
                     <a href="../view/cadfilme.php">Cadastrar filmes</a>
                     <a href="../view/cadserie.php">Cadastrar séries</a>
                     <a href="../view/cadplano.php">Cadastrar planos</a>

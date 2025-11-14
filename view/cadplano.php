@@ -18,7 +18,7 @@
             <section class="perfil">
                 <img src="../img/default.png" alt="Perfil" class="perfil-img">
                 <section class="menu-perfil">
-                    <a href="#">Meu Perfil</a>
+                    <a href="../view/perfis.php">Perfis</a>
                     <a href="../view/cadfilme.php">Cadastrar filmes</a>
                     <a href="../view/cadserie.php">Cadastrar séries</a>
                     <a href="../view/usuarios.php">Sair</a>
@@ -43,10 +43,10 @@
                 <input type="number" id="senha" name="inputVA" min="0">
 
                 <label for="senha">Qualidade Máxima</label>
-                <input type="text" id="senha" name="inputQM" min="0">
+                <input type="number" id="senha" name="inputQM" min="0">
 
                 <label for="senha">Telas Simultaneas</label>
-                <input type="number" id="senha" name="inputTS" min="1" max="4">
+                <input type="number" id="senha" name="inputTS">
 
                 <section class="opcoes">
                 <label>

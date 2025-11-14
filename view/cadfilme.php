@@ -18,7 +18,7 @@
             <section class="perfil">
                 <img src="../img/default.png" alt="Perfil" class="perfil-img">
                 <section class="menu-perfil">
-                    <a href="#">Meu Perfil</a>
+                    <a href="../view/perfis.php">Perfis</a>
                     <a href="../view/cadserie.php">Cadastrar séries</a>
                     <a href="../view/cadplano.php">Cadastrar planos</a>
                     <a href="../view/usuarios.php">Sair</a>

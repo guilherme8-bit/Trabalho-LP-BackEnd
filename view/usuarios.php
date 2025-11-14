@@ -23,9 +23,11 @@
         <section class="perfil-container">
         <?php
             $listarUsuarios = retornarUsuarios();
+            $cores = ["#ff4757", "#1e90ff", "#2ed573", "#3742fa"];
             while($usuario = mysqli_fetch_assoc($listarUsuarios)){
+                $cor = $cores[$usuario['id'] % count($cores)];
                 echo "<a href='../view/home.php?id={$usuario['id']}' class='perfil'>";
-                echo "<section class='perfil-icon'>";
+                echo "<section class='perfil-icon' style='background-color: {$cor};'>";
                 echo "<img src='../img/default.png' alt='{$usuario['Nome']}'>";
                 echo "</section>";
                 echo "<p>{$usuario['Nome']}</p>";

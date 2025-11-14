@@ -65,10 +65,10 @@ if(isset($_POST['inputNomeU']) && isset($_POST['inputCPF'])&& isset($_POST['inpu
 
     inserirUsuario($nomeU, $cpf, $email, $senha);
 
-    header('Location:../view/cadstro.php');
+    header('Location:../view/usuarios.php');
     die();
 }
-//validar login
+
 if (isset($_POST['inputEmailL']) && isset($_POST['inputSenhaL'])) {
     $email = $_POST['inputEmailL'];
     $senha = $_POST['inputSenhaL'];
