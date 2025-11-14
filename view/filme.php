@@ -43,20 +43,40 @@
                         }
                     ?>
                 </section>
-              
                 <h3>Aventura</h3>
                 <section class="flex-filmes">
-                    <section class="card"><img src="../img/filmes/O_Rei_Leão_2019.jpg"></section>
-                    <section class="card"><img src="../img/filmes/hobbit.jpg"></section>
-                    <section class="card"><img src="../img/filmes/tintin.jpg"></section>
-                    <section class="card"><img src="../img/filmes/pj.jpg"></section>
-                    <section class="card"><img src="../img/filmes/Piratas do Caribe 5.jpg"></section>
-                    <section class="card"><img src="../img/filmes/jumanji.webp"></section>
-                    <section class="card"><img src="../img/filmes/dragao.jpg"></section>
-                    <section class="card"><img src="../img/filmes/ps.jpeg"></section>
-                    <section class="card"><img src="../img/filmes/Alice-In-Wonderland-Theatrical-Poster.jpg"></section>
-                    <section class="card"><img src="../img/filmes/moana.jpg"></section>
+                    <?php
+                        $listarFilmes = retornarFilmes('Aventura');
+                        while ($filme = mysqli_fetch_assoc($listarFilmes)) {
+                            echo "<section class='card'>";
+                            echo "<img src='{$filme['imagens']}'>";
+                            echo "</section>";
+                        }
+                    ?>
                 </section>
+                <h3>Terror</h3>
+                <section class="flex-filmes">
+                    <?php
+                        $listarFilmes = retornarFilmes('Terror');
+                        while ($filme = mysqli_fetch_assoc($listarFilmes)) {
+                            echo "<section class='card'>";
+                            echo "<img src='{$filme['imagens']}'>";
+                            echo "</section>";
+                        }
+                    ?>
+                </section>
+                <h3>Drama</h3>
+                <section class="flex-filmes">
+                    <?php
+                        $listarFilmes = retornarFilmes('Drama');
+                        while ($filme = mysqli_fetch_assoc($listarFilmes)) {
+                            echo "<section class='card'>";
+                            echo "<img src='{$filme['imagens']}'>";
+                            echo "</section>";
+                        }
+                    ?>
+                </section>
+                
             </section>
             <footer class="main-footer">
         <section class="footer-content">

@@ -1,3 +1,6 @@
+<?php
+    require_once "../processamento/funcoesBD.php"
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -46,31 +49,34 @@
         <section class="container">
             <h3>Filmes em alta</h3>
             <section class="flex-filmes">
-                <section class="card"><img src="../img/filmes/filme1.webp"></section>
-                <section class="card"><img src="../img/filmes/filme2.jpg"></section>
-                <section class="card"><img src="../img/filmes/filme3.webp"></section>
-                <section class="card"><img src="../img/filmes/endgame.jpg"></section>
-                <section class="card"><img src="../img/filmes/mad max.jpg"></section>
-                <section class="card"><img src="../img/filmes/halloween.jpg"></section>
-                <section class="card"><img src="../img/filmes/dragao.jpg"></section>
-                <section class="card"><img src="../img/filmes/friday.jpg"></section>
-                <section class="card"><img src="../img/filmes/chefão.jpg"></section>
-                <section class="card"><img src="../img/filmes/liberdade.jpg"></section>
+                <?php
+                        $listarFilmes = retornarFilmes();
+                        $contador = 0;
+                        while ($filme = mysqli_fetch_assoc($listarFilmes)) {
+                            if ($contador >= 10) break;
+                            echo "<section class='card'>";
+                            echo "<img src='{$filme['imagens']}'>";
+                            echo "</section>";
+                            $contador++;
+                        }
+                    ?>
             </section>
         </section>
         <section class="container">
             <h3>Series em alta</h3>
             <section class="flex-filmes">
-                <section class="card"><img src="../img/series/breaking bad.jpg"></section>
-                <section class="card"><img src="../img/series/got.jpg"></section>
-                <section class="card"><img src="../img/series/it.avif"></section>
-                <section class="card"><img src="../img/series/chucky.jfif"></section>
-                <section class="card"><img src="../img/series/the boys.jpg"></section>
-                <section class="card"><img src="../img/series/fallout.jpg"></section>
-                <section class="card"><img src="../img/series/evil dead.webp"></section>
-                <section class="card"><img src="../img/series/peaky blinders.jpg"></section>
-                <section class="card"><img src="../img/series/twd.jpg"></section>
-                <section class="card"><img src="../img/series/alien.jpg"></section>
+                <section class="flex-filmes">
+                    <?php
+                        $listarSeries = retornarSeries();
+                        $contador = 0;
+                        while ($serie = mysqli_fetch_assoc($listarSeries)) {
+                            if ($contador >= 10) break;
+                            echo "<section class='card'>";
+                            echo "<img src='{$serie['imagem']}'>";
+                            echo "</section>";
+                            $contador++;
+                        }
+                    ?>
             </section>
         </section>
     </main>

@@ -1,7 +1,7 @@
 <?php
 function conectarBD(){
 
-    $conexao = mysqli_connect("localhost","root","admin","cineprime");
+    $conexao = mysqli_connect("localhost","root","","cineprime");
     return($conexao);
 }
 
@@ -59,15 +59,31 @@ function retornarFilmes($genero = null){
     $conexao = conectarBD();
     
     if($genero){
-        $stmt = mysqli_prepare($conexao, "SELECT nome, imagens FROM filmes WHERE Genero = ?");
+        $stmt = mysqli_prepare($conexao, "SELECT id, nome, imagens FROM filmes WHERE Genero = ?");
         mysqli_stmt_bind_param($stmt, "s", $genero);
         mysqli_stmt_execute($stmt);
         $listarFilmes = mysqli_stmt_get_result($stmt);
     }else{
-        $consulta = "SELECT nome, imagens FROM filmes";
+        $consulta = "SELECT id, nome, imagens FROM filmes";
         $listarFilmes = mysqli_query($conexao,$consulta);
     }
     return $listarFilmes;
+}
+
+function retornarSeries($genero = null){
+    
+    $conexao = conectarBD();
+    
+    if($genero){
+        $stmt = mysqli_prepare($conexao, "SELECT id, nome, imagem FROM series WHERE Genero = ?");
+        mysqli_stmt_bind_param($stmt, "s", $genero);
+        mysqli_stmt_execute($stmt);
+        $listarSeries = mysqli_stmt_get_result($stmt);
+    }else{
+        $consulta = "SELECT id, nome, imagem FROM series";
+        $listarSeries = mysqli_query($conexao,$consulta);
+    }
+    return $listarSeries;
 }
 
 function procurarFilmesESeries($filtro){

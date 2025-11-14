@@ -1,3 +1,6 @@
+<?php
+    require_once "../processamento/funcoesBD.php"
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -31,30 +34,36 @@
             <section class="bloco-principal">
                 <h3>Ação</h3>
                 <section class="flex-filmes">
-                    <section class="card"><img src="../img/series/pacificador.jpg"></section>
-                    <section class="card"><img src="../img/series/lacasa.webp"></section>
-                    <section class="card"><img src="../img/series/falcao.webp"></section>
-                    <section class="card"><img src="../img/series/flash.jpg"></section>
-                    <section class="card"><img src="../img/series/alien.jpg"></section>
-                    <section class="card"><img src="../img/series/peaky blinders.jpg"></section>
-                    <section class="card"><img src="../img/series/got.jpg"></section>
-                    <section class="card"><img src="../img/series/ck.jpg"></section>
-                    <section class="card"><img src="../img/series/arrow.jpg"></section>
-                    <section class="card"><img src="../img/series/the boys.jpg"></section>
+                    <?php
+                        $listarSeries = retornarSeries('Ação');
+                        while ($serie = mysqli_fetch_assoc($listarSeries)) {
+                            echo "<section class='card'>";
+                            echo "<img src='{$serie['imagem']}'>";
+                            echo "</section>";
+                        }
+                    ?>
                 </section>
-              
                 <h3>Aventura</h3>
                 <section class="flex-filmes">
-                    <section class="card"><img src="../img/series/op.png"></section>
-                    <section class="card"><img src="../img/series/The_Mandalorian_season_2_poster.jpg"></section>
-                    <section class="card"><img src="../img/series/vk.png"></section>
-                    <section class="card"><img src="../img/series/doctor_who.jpg"></section>
-                    <section class="card"><img src="../img/series/rm.jpg"></section>
-                    <section class="card"><img src="../img/series/gf.webp"></section>
-                    <section class="card"><img src="../img/series/tw.jpg"></section>
-                    <section class="card"><img src="../img/series/sn.webp"></section>
-                    <section class="card"><img src="../img/series/fallout.jpg"></section>
-                    <section class="card"><img src="../img/series/pco.webp"></section>
+                    <?php
+                        $listarSeries = retornarSeries('Aventura');
+                        while ($serie = mysqli_fetch_assoc($listarSeries)) {
+                            echo "<section class='card'>";
+                            echo "<img src='{$serie['imagem']}'>";
+                            echo "</section>";
+                        }
+                    ?>
+                </section>
+                <h3>Terror</h3>
+                <section class="flex-filmes">
+                    <?php
+                        $listarSeries = retornarSeries('Terror');
+                        while ($serie = mysqli_fetch_assoc($listarSeries)) {
+                            echo "<section class='card'>";
+                            echo "<img src='{$serie['imagem']}'>";
+                            echo "</section>";
+                        }
+                    ?>
                 </section>
             </section>
             <footer class="main-footer">
