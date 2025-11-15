@@ -63,8 +63,12 @@ if (isset($_GET['id'])) {
             echo "</section>";
             ?>
             <section class="buttons">
-                    <button class="btn-play">Assista Agora</button>
-                    <a href="#" class="btn-info">+ Minha Lista</a>
+            <button class="btn-play">Assista Agora</button>
+
+            <form action="../processamento/processamento.php" method="POST" style="display:inline;">
+                <input type="hidden" name="id_filme" value="<?php echo $filme['id']; ?>">
+                <button type="submit" class="btn-info">+ Minha Lista</button>
+            </form>
             </section>
         </section>
     </main>

@@ -96,8 +96,13 @@ if (isset($_POST['inputEmailL']) && isset($_POST['inputSenhaL'])) {
     $resultado = mysqli_query($conexao, $sql);
 
     if (mysqli_num_rows($resultado) > 0) {
+
+        $usuario = mysqli_fetch_assoc($resultado);
+
         session_start();
-        $_SESSION['usuario'] = $email;
+        $_SESSION['id'] = $usuario['id'];     // <--- ESSA LINHA É OBRIGATÓRIA
+        $_SESSION['email'] = $usuario['email'];
+
 
         header("Location: ../view/usuarios.php"); 
         die();
@@ -106,5 +111,31 @@ if (isset($_POST['inputEmailL']) && isset($_POST['inputSenhaL'])) {
     }
 }
 
+session_start();
+require_once "../processamento/funcoesBD.php";
+
+if (!isset($_SESSION['usuario'])) {
+    header("Location: ../view/login.php");
+    exit();
+}
+
+$conexao = conectarBD();
+
+// pegar id do usuário
+$email = $_SESSION['usuario'];
+$sqlUser = "SELECT id FROM usuario WHERE Email = '$email'";
+$resultUser = mysqli_query($conexao, $sqlUser);
+$user = mysqli_fetch_assoc($resultUser);
+$id_usuario = $user['id'];
+
+// pegando dados enviados pelo botão
+$id_filme = $_POST['id_filme'] ?? null;
+$id_serie = $_POST['id_serie'] ?? null;
+
+// adicionar no banco
+adicionarNaLista($id_usuario, $id_filme, $id_serie);
+
+header("Location: ../view/minha_lista.php");
+exit();
 
 ?>

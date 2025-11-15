@@ -125,4 +125,35 @@ function retornarUsuarios(){
     return $listarUsuarios;
 }
 
+function listarTudo(){
+    $conexao = conectarBD();
+    $sql = "SELECT id, nome, imagens FROM filmes
+            UNION
+            SELECT id, nome, imagem AS imagens FROM series";
+    return mysqli_query($conexao, $sql);
+}
+
+function adicionarNaLista($id_usuario, $id_filme = null, $id_serie = null){
+    $conexao = conectarBD();
+
+    // Filme
+    if ($id_filme !== null) {
+        $sql = "INSERT INTO minha_lista (id_usuario, id_filme) VALUES ($id_usuario, $id_filme)";
+        mysqli_query($conexao, $sql);
+        return true;
+    }
+
+    // Série
+    if ($id_serie !== null) {
+        $sql = "INSERT INTO minha_lista (id_usuario, id_serie) VALUES ($id_usuario, $id_serie)";
+        mysqli_query($conexao, $sql);
+        return true;
+    }
+
+    return false;
+}
+
+
+
+
 ?>

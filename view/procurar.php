@@ -12,6 +12,9 @@ if (isset($_GET['procurar']) && !empty(trim($_GET['procurar']))) {
 if (mysqli_num_rows($listarFilmes) == 0) {
         $mensagem = "Não encontrado";
     }
+} else{
+
+    $listarFilmes = listarTudo();
 }
 ?>
 

@@ -1,3 +1,32 @@
+<?php
+session_start();
+require "../processamento/funcoesBD.php";
+
+// Verifica se o usuário está logado
+if (!isset($_SESSION['id'])) {
+    header("Location: login.php");
+    exit();
+}
+
+$id_usuario = $_SESSION['id'];
+$conexao = conectarBD();
+
+// Buscar filmes da lista
+$sql = "SELECT 
+    ml.id,
+    f.nome AS nome_filme,
+    f.imagens AS imagem_filme,
+    s.nome AS nome_serie,
+    s.imagem AS imagem_serie
+FROM minha_lista ml
+LEFT JOIN filmes f ON ml.id_filme = f.id
+LEFT JOIN series s ON ml.id_serie = s.id
+WHERE ml.id_usuario = $id_usuario";
+
+$resultado = mysqli_query($conexao, $sql);
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,7 +56,22 @@
             </section>
         </nav>
     </header>
+    <main class="lista-filmes">
+    <h2>Minha Lista</h2>
 
+  <?php while ($item = mysqli_fetch_assoc($resultado)) { ?>
+    <section class="card">
+        <img src="<?php 
+            echo $item['imagem_filme'] ?? $item['imagem_serie']; 
+        ?>" alt="<?php 
+            echo $item['nome_filme'] ?? $item['nome_serie']; 
+        ?>">
+        <p><?php 
+            echo $item['nome_filme'] ?? $item['nome_serie']; 
+        ?></p>
+    <section>
+<?php } ?>
+</main>
     <footer class="main-footer">
         <section class="footer-content">
             <section class="footer-section about">

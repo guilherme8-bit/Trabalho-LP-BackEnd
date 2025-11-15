@@ -81,7 +81,7 @@ CREATE TABLE `minha_lista` (
   `id` int(11) NOT NULL,
   `id_usuario` int(11) DEFAULT NULL,
   `id_filme` int(11) DEFAULT NULL,
-  `id-serie` int(11) DEFAULT NULL
+  `id_serie` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -197,7 +197,7 @@ ALTER TABLE `filmes`
 --
 ALTER TABLE `minha_lista`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `id-serie` (`id-serie`),
+  ADD KEY `id_serie` (`id_serie`),
   ADD KEY `id_filme` (`id_filme`),
   ADD KEY `id_usuario` (`id_usuario`);
 
@@ -274,7 +274,7 @@ ALTER TABLE `usuario`
 -- Restrições para tabelas `minha_lista`
 --
 ALTER TABLE `minha_lista`
-  ADD CONSTRAINT `minha_lista_ibfk_1` FOREIGN KEY (`id-serie`) REFERENCES `series` (`id`),
+  ADD CONSTRAINT `minha_lista_ibfk_1` FOREIGN KEY (`id_serie`) REFERENCES `series` (`id`),
   ADD CONSTRAINT `minha_lista_ibfk_2` FOREIGN KEY (`id_filme`) REFERENCES `filmes` (`id`),
   ADD CONSTRAINT `minha_lista_ibfk_3` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id`);
 
