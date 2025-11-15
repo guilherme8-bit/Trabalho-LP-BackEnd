@@ -53,8 +53,8 @@ if (isset($_GET['id'])) {
 
                 echo "<section class='detalhes'>";
                     echo "<p>{$serie['ano']}</p>";
-                    echo "<p>{$serie['genero']}</p>";
-                    echo "<p>{$serie['avaliacao']}/10</p>";
+                    echo "<p style='text-transform: capitalize;'>{$serie['genero']}</p>";
+                    echo "<p> {$serie['avaliacao']}/10</p>";
                 echo "</section>";
 
                 echo "<section class='descricao'>";
@@ -62,6 +62,10 @@ if (isset($_GET['id'])) {
                 echo "</section>";
             echo "</section>";
             ?>
+            <section class="buttons">
+                    <button class="btn-play">Assista Agora</button>
+                    <a href="#" class="btn-info">+ Minha Lista</a>
+            </section>
         </section>
     </main>
         <footer class="main-footer">

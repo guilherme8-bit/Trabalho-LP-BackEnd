@@ -45,7 +45,7 @@ if (mysqli_num_rows($listarFilmes) == 0) {
             </section>
         </nav>
     </header>
-    <section>
+    <section class="container-procurar">
         <form method="GET" action="">
             <label for="nome">
                 <section class="titulo">
@@ -55,6 +55,7 @@ if (mysqli_num_rows($listarFilmes) == 0) {
             </label>
                 <input type="procurar" id="procurar" name="procurar" placeholder="Buscar filmes ou séries...">  
         </form>
+    </section>
         <section class='lista-filmes'>
             <?php
                 if ($mensagem != "") {
@@ -72,7 +73,6 @@ if (mysqli_num_rows($listarFilmes) == 0) {
             ?>
         </section>
 
-    </section>
     <footer class="main-footer">
         <section class="footer-content">
             <section class="footer-section about">

@@ -41,8 +41,16 @@
                     Super-herói · Aventura · Ação — Segue o super-herói titular enquanto ele reconcilia sua herança com sua educação humana. Ele é a personificação da verdade, da justiça e de um futuro melhor em um mundo que vê a bondade como algo antiquado.
                 </p>
                 <section class="buttons">
-                    <button class="btn-play">Assista Agora</button>
-                    <button class="btn-info">Mais informações</button>
+                    <?php
+                        $listarFilmes = retornarFilmes();
+                        while($filme = mysqli_fetch_assoc($listarFilmes)){
+                            if ($filme['id'] == 11) {
+                                echo "<a href='../view/detalhes-filmes.php?id={$filme['id']}'>";
+                                echo "<button class='btn-info'>Mais informações</button>";
+                                echo "</a>";
+                                }
+                        }
+                    ?>
                 </section>
             </section>
         </section>

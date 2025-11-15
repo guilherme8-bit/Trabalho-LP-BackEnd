@@ -142,7 +142,7 @@ body{
     gap: 15px;
 }
 
-.btn-play, .btn-info {
+.btn-info {
     padding: 10px 22px;
     font-size: 1rem;
     font-weight: 600;
@@ -151,22 +151,13 @@ body{
     cursor: pointer;
 }
 
-.btn-play {
+.btn-info {
     background: #e50914;
     color: #fff;
 }
 
-.btn-info {
-    background: #fff3;
-    color: #fff;
-}
-
-.btn-play:hover{
-    background: #e50914cc;
-}
-
 .btn-info:hover{
-    background: #fff2;
+    background: #e50914cc;
 }
 
 .container {
