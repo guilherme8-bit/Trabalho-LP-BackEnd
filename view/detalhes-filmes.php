@@ -1,13 +1,24 @@
 <?php
-    require_once "../processamento/funcoesBD.php"
+require_once "../processamento/funcoesBD.php";
+
+if (isset($_GET['id'])) {
+    $id = $_GET['id'];
+
+    $listarFilme = retornarFilmes(null, $id);
+    $filme = mysqli_fetch_assoc($listarFilme);
+
+}
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../estilizacao/home.css">
-    <title>Home</title>
+    <link rel="stylesheet" href="../estilizacao/detalhes-filme.css">
+    <?php
+    echo "<title>{$filme['nome']}</title>";
+    ?>
+
 </head>
 <body>
     <header class="navbar">
@@ -31,56 +42,29 @@
         </nav>
     </header>
     <main>
-        <section class="filme">
-            <img src="../img/filmes/filme2.jpg" alt="Banner do filme" class="banner">
-            <section class="sobreposicao"></section>
+        <section class='filme'>
+        <?php
+            echo "<img src='{$filme['imagens']}' alt='{$filme['nome']}' class='banner'>";
+            echo "<section class='sobreposicao'></section>";
+            
 
-            <section class="content">
-                <h2 class="title">SUPERMAN</h2>
-                <p class="descricao">
-                    Super-herói · Aventura · Ação — Segue o super-herói titular enquanto ele reconcilia sua herança com sua educação humana. Ele é a personificação da verdade, da justiça e de um futuro melhor em um mundo que vê a bondade como algo antiquado.
-                </p>
-                <section class="buttons">
-                    <button class="btn-play">Assista Agora</button>
-                    <button class="btn-info">Mais informações</button>
-                </section>
-            </section>
-        </section>
-        <section class="container">
-            <h3>Filmes em alta</h3>
-            <section class="flex-filmes">
-                <?php
-                        $listarFilmes = retornarFilmes();
-                        $contador = 0;
-                        while ($filme = mysqli_fetch_assoc($listarFilmes)) {
-                            if ($contador >= 10) break;
-                            echo "<a href='../view/detalhes-filmes.php?id={$filme['id']}' class='card'>";
-                            echo "<img src='{$filme['imagens']}'>";
-                            echo "</a>";
-                            $contador++;
-                        }
-                    ?>
-            </section>
-        </section>
-        <section class="container">
-            <h3>Series em alta</h3>
-            <section class="flex-filmes">
-                <section class="flex-filmes">
-                    <?php
-                        $listarSeries = retornarSeries();
-                        $contador = 0;
-                        while ($serie = mysqli_fetch_assoc($listarSeries)) {
-                            if ($contador >= 10) break;
-                            echo "<a href='../view/detalhes-series.php?id={$serie['id']}' class='card'>";
-                            echo "<img src='{$serie['imagem']}'>";
-                            echo "</a href='../view/detalhes-series.php?id={$serie['id']}'>";
-                            $contador++;
-                        }
-                    ?>
-            </section>
+            echo "<section class='content'>";
+                echo "<h2 class='title'>{$filme['nome']}</h2>";
+
+                echo "<section class='detalhes'>";
+                    echo "<p>{$filme['ano']}</p>";
+                    echo "<p>{$filme['genero']}</p>";
+                    echo "<p>{$filme['avaliacao']}/10</p>";
+                echo "</section>";
+
+                echo "<section class='descricao'>";
+                    echo "{$filme['descricao']}";
+                echo "</section>";
+            echo "</section>";
+            ?>
         </section>
     </main>
-    <footer class="main-footer">
+        <footer class="main-footer">
         <section class="footer-content">
             <section class="footer-section about">
                 <h3>CINEPRIME</h3>
