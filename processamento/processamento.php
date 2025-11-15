@@ -100,7 +100,7 @@ if (isset($_POST['inputEmailL']) && isset($_POST['inputSenhaL'])) {
         $usuario = mysqli_fetch_assoc($resultado);
 
         session_start();
-        $_SESSION['id'] = $usuario['id'];     // <--- ESSA LINHA É OBRIGATÓRIA
+        $_SESSION['id'] = $usuario['id'];    
         $_SESSION['email'] = $usuario['email'];
 
 
@@ -121,18 +121,18 @@ if (!isset($_SESSION['usuario'])) {
 
 $conexao = conectarBD();
 
-// pegar id do usuário
+
 $email = $_SESSION['usuario'];
 $sqlUser = "SELECT id FROM usuario WHERE Email = '$email'";
 $resultUser = mysqli_query($conexao, $sqlUser);
 $user = mysqli_fetch_assoc($resultUser);
 $id_usuario = $user['id'];
 
-// pegando dados enviados pelo botão
+
 $id_filme = $_POST['id_filme'] ?? null;
 $id_serie = $_POST['id_serie'] ?? null;
 
-// adicionar no banco
+
 adicionarNaLista($id_usuario, $id_filme, $id_serie);
 
 header("Location: ../view/minha_lista.php");

@@ -2,16 +2,16 @@
 session_start();
 require "../processamento/funcoesBD.php";
 
-// Verifica se o usuário está logado
+
 if (!isset($_SESSION['id'])) {
     header("Location: login.php");
-    exit();
+    die();
 }
 
 $id_usuario = $_SESSION['id'];
 $conexao = conectarBD();
 
-// Buscar filmes da lista
+
 $sql = "SELECT 
     ml.id,
     f.nome AS nome_filme,
@@ -56,20 +56,16 @@ $resultado = mysqli_query($conexao, $sql);
             </section>
         </nav>
     </header>
-    <main class="lista-filmes">
     <h2>Minha Lista</h2>
+    <main class="lista-filmes">
+    
 
-  <?php while ($item = mysqli_fetch_assoc($resultado)) { ?>
+ <?php while ($item = mysqli_fetch_assoc($resultado)) { ?>
     <section class="card">
-        <img src="<?php 
-            echo $item['imagem_filme'] ?? $item['imagem_serie']; 
-        ?>" alt="<?php 
-            echo $item['nome_filme'] ?? $item['nome_serie']; 
-        ?>">
-        <p><?php 
-            echo $item['nome_filme'] ?? $item['nome_serie']; 
-        ?></p>
-    <section>
+        <img src="<?= $item['imagem_filme'] ?? $item['imagem_serie']; ?>" 
+             alt="<?= $item['nome_filme'] ?? $item['nome_serie']; ?>">
+        <p><?= $item['nome_filme'] ?? $item['nome_serie']; ?></p>
+    </section>
 <?php } ?>
 </main>
     <footer class="main-footer">

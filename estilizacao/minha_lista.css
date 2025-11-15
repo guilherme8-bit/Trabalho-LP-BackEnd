@@ -197,3 +197,7 @@ body{
     object-fit: cover; 
     border-radius: 10px;
 }
+
+h2{
+    color: white;
+}
