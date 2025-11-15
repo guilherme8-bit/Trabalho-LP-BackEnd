@@ -12,7 +12,7 @@
         <p class="logo">CINEPRIME</p>
         <section class="nav-links">
             <a href="view/login.php" class="entrar">Entrar</a>
-            <a href="" class="assinar">Assine Agora</a>
+            <a href="view/cadstro.php" class="assinar">Assine Agora</a>
         </section>
     </header>
         <main>
@@ -39,7 +39,8 @@
                         </ul>
                         <p class="preco">12x <span>R$22,90</span>/mês</p>
                         <p class="preco-total">Preço total anual R$274,80</p>
-                        <button class="btn-plano">ESCOLHA SEU PLANO</button>
+                       <a href="view/cadstro.php" class="btn-plano">ESCOLHA SEU PLANO</a>
+
                     </section>
 
                     <section class="plano">
@@ -51,7 +52,7 @@
                         </ul>
                         <p class="preco">12x <span>R$34,90</span>/mês</p>
                         <p class="preco-total">Preço total anual R$418,80</p>
-                        <button class="btn-plano">ESCOLHA SEU PLANO</button>
+                        <a href="view/cadstro.php" class="btn-plano">ESCOLHA SEU PLANO</a>
                     </section>
 
                     <section class="plano">
@@ -64,7 +65,7 @@
                         </ul>
                         <p class="preco">12x <span>R$44,90</span>/mês</p>
                         <p class="preco-total">Preço total anual R$538,80</p>
-                        <button class="btn-plano">ESCOLHA SEU PLANO</button>
+                        <a href="view/cadstro.php" class="btn-plano">ESCOLHA SEU PLANO</a>
                     </section>
                 </section>
             </section>

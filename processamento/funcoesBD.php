@@ -47,11 +47,20 @@ mysqli_query($conexao,$consulta);
 function inserirUsuario($nomeU, $cpf, $email, $senha){
     
     $conexao = conectarBD();
-    $consulta = "INSERT INTO usuario (nome, cpf, Email, senha, id_plano)
-                    VALUES('$nomeU','$cpf','$email','$senha', 1)";
+    $consulta = "INSERT INTO usuario (nome, cpf, Email, senha)
+                    VALUES('$nomeU','$cpf','$email','$senha')";
     
     mysqli_query($conexao,$consulta);
 
+}
+
+function inserirPag($nomeT,$cpfT,$numCartao,$datValidade,$codSeg,$plano,$parc){
+
+    $conexao = conectarBD();
+    $consulta = "INSERT INTO  pagamentos (nome, cpf, numero_cartao, data_validade, cod_seguranca, nome_plano, parcelamento)
+                    VALUES('$nomeT','$cpfT','$numCartao','$datValidade','$codSeg','$plano','$parc')";
+
+    mysqli_query($conexao,$consulta);
 }
 
 function retornarFilmes($genero = null){
@@ -101,7 +110,7 @@ function procurarFilmesESeries($filtro){
 
 function retornarUsuarios(){
     $conexao = conectarBD();
-    $consulta = "SELECT * FROM usuario";
+    $consulta = "SELECT usuario.*, pagamentos.nome_plano  FROM usuario LEFT JOIN pagamentos ON pagamentos.id = usuario.id ";
     $listarUsuarios = mysqli_query($conexao, $consulta);
     return $listarUsuarios;
 }

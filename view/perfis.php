@@ -48,6 +48,7 @@
                     echo "<p>Email: {$usuario['Email']}</p>";
                     echo "<p>CPF: {$usuario['CPF']}</p>";
                     echo "<p>Senha: {$usuario['Senha']}</p>";
+                    echo "<p>Plano: {$usuario['nome_plano']}</p>";
                     echo "</section>";
                 }
             ?>

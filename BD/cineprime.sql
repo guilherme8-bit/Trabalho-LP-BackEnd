@@ -95,7 +95,7 @@ CREATE TABLE `pagamentos` (
   `nome` varchar(150) NOT NULL,
   `cpf` varchar(50) NOT NULL,
   `numero_cartao` int(11) NOT NULL,
-  `data_validade` date NOT NULL,
+  `data_validade` varchar(50) NOT NULL,
   `cod_seguranca` int(11) NOT NULL,
   `nome_plano` varchar(100) NOT NULL,
   `parcelamento` varchar(100) NOT NULL

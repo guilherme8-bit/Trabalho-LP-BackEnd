@@ -65,8 +65,25 @@ if(isset($_POST['inputNomeU']) && isset($_POST['inputCPF'])&& isset($_POST['inpu
 
     inserirUsuario($nomeU, $cpf, $email, $senha);
 
-    header('Location:../view/usuarios.php');
+    header('Location:../view/telapag.php');
     die();
+}
+
+if(isset($_POST['inputNomeT']) && isset($_POST['inputCPFT']) && isset($_POST['inputNC']) && isset($_POST['inputDV']) && isset($_POST['inputCS'])&& isset($_POST['plano'])&& isset($_POST['parc'])){
+
+    $nomeT = $_POST['inputNomeT'];
+    $cpfT = $_POST['inputCPFT'];
+    $numCartao = $_POST['inputNC'];
+    $datValidade = $_POST['inputDV'];
+    $codSeg = $_POST['inputCS'];
+    $plano = $_POST['plano'];
+    $parc = $_POST['parc'];
+
+    inserirPag($nomeT,$cpfT,$numCartao,$datValidade,$codSeg,$plano,$parc);
+
+    header('Location:../view/home.php');
+    die();
+    
 }
 
 if (isset($_POST['inputEmailL']) && isset($_POST['inputSenhaL'])) {
