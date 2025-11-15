@@ -37,9 +37,9 @@
                     <?php
                         $listarFilmes = retornarFilmes('Ação');
                         while ($filme = mysqli_fetch_assoc($listarFilmes)) {
-                            echo "<section class='card'>";
+                            echo "<a href='../view/detalhes-filmes.php?id={$filme['id']}' class='card'>";
                             echo "<img src='{$filme['imagens']}'>";
-                            echo "</section>";
+                            echo "</a>";
                         }
                     ?>
                 </section>
@@ -48,9 +48,9 @@
                     <?php
                         $listarFilmes = retornarFilmes('Aventura');
                         while ($filme = mysqli_fetch_assoc($listarFilmes)) {
-                            echo "<section class='card'>";
+                            echo "<a href='../view/detalhes-filmes.php?id={$filme['id']}' class='card'>";
                             echo "<img src='{$filme['imagens']}'>";
-                            echo "</section>";
+                            echo "</a>";
                         }
                     ?>
                 </section>
@@ -59,9 +59,9 @@
                     <?php
                         $listarFilmes = retornarFilmes('Terror');
                         while ($filme = mysqli_fetch_assoc($listarFilmes)) {
-                            echo "<section class='card'>";
+                            echo "<a href='../view/detalhes-filmes.php?id={$filme['id']}' class='card'>";
                             echo "<img src='{$filme['imagens']}'>";
-                            echo "</section>";
+                            echo "</a>";
                         }
                     ?>
                 </section>
@@ -70,9 +70,9 @@
                     <?php
                         $listarFilmes = retornarFilmes('Drama');
                         while ($filme = mysqli_fetch_assoc($listarFilmes)) {
-                            echo "<section class='card'>";
+                            echo "<a href='../view/detalhes-filmes.php?id={$filme['id']}' class='card'>";
                             echo "<img src='{$filme['imagens']}'>";
-                            echo "</section>";
+                            echo "</a>";
                         }
                     ?>
                 </section>

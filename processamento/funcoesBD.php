@@ -54,45 +54,55 @@ function inserirUsuario($nomeU, $cpf, $email, $senha){
 
 }
 
-function retornarFilmes($genero = null){
+function retornarFilmes($genero = null, $id = null){
     
     $conexao = conectarBD();
     
-    if($genero){
-        $stmt = mysqli_prepare($conexao, "SELECT id, nome, imagens FROM filmes WHERE Genero = ?");
+    if($id !== null){
+        $stmt = mysqli_prepare($conexao, "SELECT id, nome, descricao, genero, avaliacao, ano, imagens FROM filmes WHERE id = ?");
+        mysqli_stmt_bind_param($stmt, "i", $id);
+        mysqli_stmt_execute($stmt);
+        return mysqli_stmt_get_result($stmt);
+    }
+
+    if($genero !== null){
+        $stmt = mysqli_prepare($conexao, "SELECT id, nome, imagens FROM filmes WHERE genero = ?");
         mysqli_stmt_bind_param($stmt, "s", $genero);
         mysqli_stmt_execute($stmt);
-        $listarFilmes = mysqli_stmt_get_result($stmt);
-    }else{
-        $consulta = "SELECT id, nome, imagens FROM filmes";
-        $listarFilmes = mysqli_query($conexao,$consulta);
+        return mysqli_stmt_get_result($stmt);
     }
-    return $listarFilmes;
+
+    $consulta = "SELECT id, nome, imagens FROM filmes";
+    return mysqli_query($conexao, $consulta);
 }
 
-function retornarSeries($genero = null){
+function retornarSeries($genero = null, $id = null){
     
     $conexao = conectarBD();
     
-    if($genero){
-        $stmt = mysqli_prepare($conexao, "SELECT id, nome, imagem FROM series WHERE Genero = ?");
+    if($id !== null){
+        $stmt = mysqli_prepare($conexao, "SELECT id, nome, descricao, genero, avaliacao, ano, imagem FROM series WHERE id = ?");
+        mysqli_stmt_bind_param($stmt, "i", $id);
+        mysqli_stmt_execute($stmt);
+        return mysqli_stmt_get_result($stmt);
+    }
+    if($genero !== null){
+        $stmt = mysqli_prepare($conexao, "SELECT id, nome, imagem FROM series WHERE genero = ?");
         mysqli_stmt_bind_param($stmt, "s", $genero);
         mysqli_stmt_execute($stmt);
-        $listarSeries = mysqli_stmt_get_result($stmt);
-    }else{
-        $consulta = "SELECT id, nome, imagem FROM series";
-        $listarSeries = mysqli_query($conexao,$consulta);
+        return mysqli_stmt_get_result($stmt);
     }
-    return $listarSeries;
+    $consulta = "SELECT id, nome, imagem FROM series";
+    return mysqli_query($conexao, $consulta);
 }
 
 function procurarFilmesESeries($filtro){
     $conexao = conectarBD();
-    $procurar = "SELECT nome, imagens, 'filme' AS tipo 
+    $procurar = "SELECT id, nome, imagens, 'filme' AS tipo 
         FROM filmes 
         WHERE nome LIKE '%$filtro%'
         UNION
-        SELECT nome, imagem AS imagens, 'serie' AS tipo 
+        SELECT id, nome, imagem AS imagens, 'serie' AS tipo 
         FROM series 
         WHERE nome LIKE '%$filtro%'";
     $procFilmesESeries = mysqli_query($conexao,$procurar);

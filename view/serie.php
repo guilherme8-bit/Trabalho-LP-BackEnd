@@ -37,9 +37,9 @@
                     <?php
                         $listarSeries = retornarSeries('Ação');
                         while ($serie = mysqli_fetch_assoc($listarSeries)) {
-                            echo "<section class='card'>";
+                            echo "<a href='../view/detalhes-series.php?id={$serie['id']}' class='card'>";
                             echo "<img src='{$serie['imagem']}'>";
-                            echo "</section>";
+                            echo "</a>";
                         }
                     ?>
                 </section>
@@ -48,9 +48,9 @@
                     <?php
                         $listarSeries = retornarSeries('Aventura');
                         while ($serie = mysqli_fetch_assoc($listarSeries)) {
-                            echo "<section class='card'>";
+                            echo "<a href='../view/detalhes-series.php?id={$serie['id']}' class='card'>";
                             echo "<img src='{$serie['imagem']}'>";
-                            echo "</section>";
+                            echo "</a>";
                         }
                     ?>
                 </section>
@@ -59,9 +59,9 @@
                     <?php
                         $listarSeries = retornarSeries('Terror');
                         while ($serie = mysqli_fetch_assoc($listarSeries)) {
-                            echo "<section class='card'>";
+                            echo "<a href='../view/detalhes-series.php?id={$serie['id']}' class='card'>";
                             echo "<img src='{$serie['imagem']}'>";
-                            echo "</section>";
+                            echo "</a>";
                         }
                     ?>
                 </section>

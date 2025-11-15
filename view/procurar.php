@@ -55,21 +55,22 @@ if (mysqli_num_rows($listarFilmes) == 0) {
             </label>
                 <input type="procurar" id="procurar" name="procurar" placeholder="Buscar filmes ou séries...">  
         </form>
-        <?php
-        if ($mensagem != "") {
-            echo "<p class='mensagem'>$mensagem</p>";
-        } elseif (isset($listarFilmes) && mysqli_num_rows($listarFilmes) > 0) {
-    
-            while ($filme = mysqli_fetch_assoc($listarFilmes)) {
-                echo "<section class='bloco-principal'>";
-                echo "<section class=\"card\"><img src='{$filme['imagens']}'></section>";
-                echo "<h3>{$filme['nome']}</h3>";
-                echo "</section>";
-    }
-} 
+        <section class='lista-filmes'>
+            <?php
+                if ($mensagem != "") {
+                    echo "<p class='mensagem'>$mensagem</p>";
+                } elseif (isset($listarFilmes) && mysqli_num_rows($listarFilmes) > 0) {
+                    
 
-        
-        ?>
+                    while ($filme_series = mysqli_fetch_assoc($listarFilmes)) {
+                        echo "<section class='card'>";
+                        echo "<a href='../view/detalhes-filmes.php?id={$filme_series['id']}'><img src='{$filme_series['imagens']}'></a>";
+                        echo "<h3>{$filme_series['nome']}</h3>";
+                        echo "</section>";
+                    }
+                }
+            ?>
+        </section>
 
     </section>
     <footer class="main-footer">
