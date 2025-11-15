@@ -153,7 +153,4 @@ function adicionarNaLista($id_usuario, $id_filme = null, $id_serie = null){
     return false;
 }
 
-
-
-
 ?>

@@ -1,5 +1,17 @@
 <?php
-    require_once "../processamento/funcoesBD.php"
+    session_start();
+    require_once "../processamento/funcoesBD.php";
+
+    if (!isset($_SESSION['email'])) {
+    header("Location: login.php");
+    exit();
+}
+    
+    if (isset($_GET['perfil_id'])) {
+        $_SESSION['id_perfil'] = $_GET['perfil_id'];
+        header("Location: home.php");
+        exit();
+    }
 ?>
 
 <!DOCTYPE html>
@@ -26,7 +38,7 @@
             $cores = ["#ff4757", "#1e90ff", "#2ed573", "#3742fa"];
             while($usuario = mysqli_fetch_assoc($listarUsuarios)){
                 $cor = $cores[$usuario['id'] % count($cores)];
-                echo "<a href='../view/home.php?id={$usuario['id']}' class='perfil'>";
+                echo "<a href='usuarios.php?perfil_id={$usuario['id']}' class='perfil'>";
                 echo "<section class='perfil-icon' style='background-color: {$cor};'>";
                 echo "<img src='../img/default.png' alt='{$usuario['Nome']}'>";
                 echo "</section>";

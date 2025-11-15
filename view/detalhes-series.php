@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once "../processamento/funcoesBD.php";
 
 if (isset($_GET['id'])) {
@@ -62,14 +63,14 @@ if (isset($_GET['id'])) {
                 echo "</section>";
             echo "</section>";
             ?>
-           <section class="buttons">
+        <section class="buttons">
     <button class="btn-play">Assista Agora</button>
     
     <form method="POST" action="../processamento/processamento.php" style="display:inline;">
         <input type="hidden" name="id_serie" value="<?php echo $serie['id']; ?>">
         <button type="submit" class="btn-info">+ Minha Lista</button>
     </form>
-</section>
+        </section>
         </section>
     </main>
         <footer class="main-footer">

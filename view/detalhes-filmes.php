@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once "../processamento/funcoesBD.php";
 
 if (isset($_GET['id'])) {

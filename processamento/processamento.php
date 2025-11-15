@@ -99,7 +99,6 @@ if (isset($_POST['inputEmailL']) && isset($_POST['inputSenhaL'])) {
 
         $usuario = mysqli_fetch_assoc($resultado);
 
-        session_start();
         $_SESSION['id'] = $usuario['id'];    
         $_SESSION['email'] = $usuario['email'];
 
@@ -111,31 +110,26 @@ if (isset($_POST['inputEmailL']) && isset($_POST['inputSenhaL'])) {
     }
 }
 
-session_start();
-require_once "../processamento/funcoesBD.php";
 
-if (!isset($_SESSION['usuario'])) {
-    header("Location: ../view/login.php");
+if (isset($_POST['id_filme']) || isset($_POST['id_serie'])){
+    if (!isset($_SESSION['id_perfil'])) {
+        header("Location: ../view/login.php");
+        exit();
+    }
+    
+    $conexao = conectarBD();
+    
+    
+    $id_usuario = $_SESSION['id_perfil'];
+    
+    $id_filme = $_POST['id_filme'] ?? null;
+    $id_serie = $_POST['id_serie'] ?? null;
+    
+    
+    adicionarNaLista($id_usuario, $id_filme, $id_serie);
+    
+    header("Location: ../view/minha_lista.php");
     exit();
 }
-
-$conexao = conectarBD();
-
-
-$email = $_SESSION['usuario'];
-$sqlUser = "SELECT id FROM usuario WHERE Email = '$email'";
-$resultUser = mysqli_query($conexao, $sqlUser);
-$user = mysqli_fetch_assoc($resultUser);
-$id_usuario = $user['id'];
-
-
-$id_filme = $_POST['id_filme'] ?? null;
-$id_serie = $_POST['id_serie'] ?? null;
-
-
-adicionarNaLista($id_usuario, $id_filme, $id_serie);
-
-header("Location: ../view/minha_lista.php");
-exit();
 
 ?>

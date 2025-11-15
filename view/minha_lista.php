@@ -60,13 +60,15 @@ $resultado = mysqli_query($conexao, $sql);
     <main class="lista-filmes">
     
 
- <?php while ($item = mysqli_fetch_assoc($resultado)) { ?>
-    <section class="card">
-        <img src="<?= $item['imagem_filme'] ?? $item['imagem_serie']; ?>" 
-             alt="<?= $item['nome_filme'] ?? $item['nome_serie']; ?>">
-        <p><?= $item['nome_filme'] ?? $item['nome_serie']; ?></p>
-    </section>
-<?php } ?>
+    <?php while ($item = mysqli_fetch_assoc($resultado)) { ?>
+        <section class="card">
+            <a href="<?= $link ?>">
+            <img src="<?= $item['imagem_filme'] ?? $item['imagem_serie']; ?>" 
+                alt="<?= $item['nome_filme'] ?? $item['nome_serie']; ?>">
+            <p><?= $item['nome_filme'] ?? $item['nome_serie']; ?></p>
+            </a>
+        </section>
+    <?php } ?>
 </main>
     <footer class="main-footer">
         <section class="footer-content">
