@@ -139,7 +139,7 @@ function adicionarNaLista($idUsuario, $idItem, $tipo) {
     $conexao = conectarBD();
 
     if ($tipo === "filme") {
-        // evita duplicado
+     
         $check = "SELECT id FROM minha_lista 
                 WHERE id_usuario = $idUsuario AND id_filme = $idItem";
     } else {
@@ -182,7 +182,7 @@ function retornarLista($idUsuario) {
 function retornarUsuarioPorId($id){
     $conexao = conectarBD();
 
-    // Segurança: evita SQL injection
+   
     $id = intval($id);
 
     $sql = "SELECT 

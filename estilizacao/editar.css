@@ -307,7 +307,7 @@ input {
     margin: 15px 0 20px 0;
 }
 
-/* Botões dos planos */
+
 .btn-plano {
     flex: 1;
     padding: 12px;
@@ -321,7 +321,7 @@ input {
     text-align: center;
 }
 
-/* Hover */
+
 .btn-plano:hover {
     background-color: #00b0d933;
     transform: scale(1.03);

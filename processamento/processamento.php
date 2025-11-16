@@ -147,7 +147,7 @@ if (isset($_GET['acao']) && $_GET['acao'] === "remover_lista") {
 
     $idUsuario = $_SESSION['id'];
     $idItem = intval($_GET['id']);
-    $tipo = $_GET['tipo']; // filme ou serie
+    $tipo = $_GET['tipo']; 
 
     if ($tipo === "filme") {
         $sql = "DELETE FROM minha_lista 
