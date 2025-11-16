@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 16/11/2025 às 17:46
+-- Tempo de geração: 16/11/2025 às 20:00
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -93,7 +93,8 @@ INSERT INTO `minha_lista` (`id`, `id_usuario`, `id_filme`, `id_serie`) VALUES
 (21, 6, 14, NULL),
 (22, 6, NULL, 8),
 (24, 7, NULL, 7),
-(25, 8, 19, NULL);
+(25, 8, 19, NULL),
+(26, 7, NULL, 8);
 
 -- --------------------------------------------------------
 
@@ -117,9 +118,9 @@ CREATE TABLE `pagamentos` (
 --
 
 INSERT INTO `pagamentos` (`id`, `nome`, `cpf`, `numero_cartao`, `data_validade`, `cod_seguranca`, `nome_plano`, `parcelamento`) VALUES
-(6, 'Guilherme L.S', '987654321', 112233, '09/2030', 453, 'platinum', '12x de R$ 44,90'),
+(6, 'Guilherme L.S', '987654321', 778899, '09/2027', 453, 'com_anuncios', '12x de R$ 22,90'),
 (7, 'Dany Silva', '123456789', 223344, '12/2028', 543, 'standard', '12x de R$ 34,90'),
-(8, 'Mario', '1357986', 221133, '06/2028', 752, 'platinum', '12x de R$ 44,90');
+(8, 'Mario', '1357986', 998877, '06/2028', 752, 'standard', '6x de R$ 69,80');
 
 -- --------------------------------------------------------
 
@@ -131,13 +132,22 @@ CREATE TABLE `plano` (
   `id` int(11) NOT NULL,
   `Nome` varchar(50) NOT NULL,
   `Descricao` varchar(250) DEFAULT NULL,
-  `Valor_mensal` float NOT NULL,
-  `Valor_anual` float NOT NULL,
+  `Valor_mensal` varchar(50) NOT NULL,
+  `Valor_anual` varchar(50) NOT NULL,
   `Esta_ativo` tinyint(1) NOT NULL,
   `Qualidade_maxima` varchar(50) DEFAULT NULL,
   `Telas_simultaneas` int(11) DEFAULT NULL,
   `Tem_anuncios` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Despejando dados para a tabela `plano`
+--
+
+INSERT INTO `plano` (`id`, `Nome`, `Descricao`, `Valor_mensal`, `Valor_anual`, `Esta_ativo`, `Qualidade_maxima`, `Telas_simultaneas`, `Tem_anuncios`) VALUES
+(1, 'Básico com Anúncios', '- 2 dispositivos ao mesmo tempo - Resolução Full HD', '22,90', '274,80', 1, 'Full HD', 2, 1),
+(2, 'Standard', '- 2 dispositivos ao mesmo tempo - Resolução Full HD - 30 downloads para curtir off-line', '34,90', '418,80', 1, 'Full HD', 2, 0),
+(3, 'Platinum', '-4 dispositivos ao mesmo tempo - Resolução Full HD e 4K Ultra HD - Áudio Dolby Atmos - 100 downloads para curtir off-line', '44,90', '538,80', 1, '4K Ultra HD', 4, 0);
 
 -- --------------------------------------------------------
 
@@ -269,19 +279,19 @@ ALTER TABLE `filmes`
 -- AUTO_INCREMENT de tabela `minha_lista`
 --
 ALTER TABLE `minha_lista`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT de tabela `pagamentos`
 --
 ALTER TABLE `pagamentos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de tabela `plano`
 --
 ALTER TABLE `plano`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de tabela `series`
@@ -293,7 +303,7 @@ ALTER TABLE `series`
 -- AUTO_INCREMENT de tabela `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- Restrições para tabelas despejadas

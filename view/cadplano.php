@@ -37,13 +37,13 @@
                 <input type="text" id="descricao" name="inputDesc">
 
                 <label for="email">Valor Mensal</label>
-                <input type="number" id="email" name="inputVM" min="0" step="0.01">
+                <input type="text" id="email" name="inputVM">
                 
                 <label for="senha">Valor Anual</label>
-                <input type="number" id="senha" name="inputVA" min="0">
+                <input type="text" id="senha" name="inputVA" min="0">
 
                 <label for="senha">Qualidade Máxima</label>
-                <input type="number" id="senha" name="inputQM" min="0">
+                <input type="text" id="senha" name="inputQM" min="0">
 
                 <label for="senha">Telas Simultaneas</label>
                 <input type="number" id="senha" name="inputTS">

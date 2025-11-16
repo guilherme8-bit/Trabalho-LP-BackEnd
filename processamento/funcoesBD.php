@@ -44,6 +44,12 @@ function inserirPlano($nome, $descricao, $valorMensal, $valorAnual, $qualidade, 
 mysqli_query($conexao,$consulta);
 }
 
+function listarPlanosSite() {
+    $conexao = conectarBD();
+    $sql = "SELECT * FROM plano WHERE Esta_ativo = 1 ORDER BY valor_anual ASC";
+    return mysqli_query($conexao, $sql);
+}
+
 function inserirUsuario($nomeU, $cpf, $email, $senha){
     
     $conexao = conectarBD();

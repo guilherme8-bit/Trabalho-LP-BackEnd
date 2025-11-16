@@ -34,42 +34,28 @@
                 <p class="economia">Economize até 36% com o plano anual parcelado</p>
 
                 <section class="planos-container">
-                    <section class="plano">
-                        <h3>Básico com Anúncios</h3>
-                        <ul>
-                            <li>- <strong>2 dispositivos</strong> ao mesmo tempo</li>
-                            <li>- Resolução <strong>Full HD</strong></li>
-                        </ul>
-                        <p class="preco">12x <span>R$22,90</span>/mês</p>
-                        <p class="preco-total">Preço total anual R$274,80</p>
-                        <a href="view/cadstro.php" class="btn-plano">ESCOLHA SEU PLANO</a>
+                    <?php
+                        $planos = listarPlanosSite();
 
-                    </section>
+                        while ($p = mysqli_fetch_assoc($planos)) {
 
-                    <section class="plano">
-                        <h3>Standard</h3>
-                        <ul>
-                            <li>- <strong>2 dispositivos</strong> ao mesmo tempo</li>
-                            <li>- Resolução <strong>Full HD</strong></li>
-                            <li>- <strong>30 downloads</strong> para curtir off-line</li>
-                        </ul>
-                        <p class="preco">12x <span>R$34,90</span>/mês</p>
-                        <p class="preco-total">Preço total anual R$418,80</p>
-                        <a href="view/cadstro.php" class="btn-plano">ESCOLHA SEU PLANO</a>
-                    </section>
+                            echo "<section class='plano'>";
 
-                    <section class="plano">
-                        <h3>Platinum</h3>
-                        <ul>
-                            <li>-<strong>4 dispositivos</strong> ao mesmo tempo</li>
-                            <li>- Resolução <strong>Full HD e 4K Ultra HD</strong></li>
-                            <li>- Áudio <strong>Dolby Atmos</strong></li>
-                            <li>- <strong>100 downloads</strong> para curtir off-line</li>
-                        </ul>
-                        <p class="preco">12x <span>R$44,90</span>/mês</p>
-                        <p class="preco-total">Preço total anual R$538,80</p>
-                        <a href="view/cadstro.php" class="btn-plano">ESCOLHA SEU PLANO</a>
-                    </section>
+                            echo "<h3>{$p['Nome']}</h3>";
+
+                            echo "<ul>";
+                            echo "<li>- <strong>{$p['Telas_simultaneas']} dispositivos</strong> ao mesmo tempo</li>";
+                            echo "<li>- Resolução <strong>{$p['Qualidade_maxima']}</strong></li>";
+                            echo "</ul>";
+
+                            echo "<p class='preco'>12x <span>R$ {$p['Valor_mensal']}</span>/mês</p>";
+                            echo "<p class='preco-total'>Preço total anual R$ {$p['Valor_anual']}</p>";
+
+                            echo "<a href='view/cadstro.php?id_plano={$p['id']}' class='btn-plano'>ESCOLHA SEU PLANO</a>";
+
+                            echo "</section>";
+                        }
+                    ?>  
                 </section>
             </section>
 
