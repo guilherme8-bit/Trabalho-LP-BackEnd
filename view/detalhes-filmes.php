@@ -49,7 +49,10 @@ if (!$filme) {
     </header>
     <main>
         <section class='filme'>
-        <?php
+            <?php
+            echo "<a href='../view/home.php' class='voltar'>";
+            echo "<img src='../img/voltar.png' alt='Voltar'>";
+            echo "</a>";
             echo "<img src='{$filme['imagens']}' alt='{$filme['nome']}' class='banner'>";
             echo "<section class='sobreposicao'></section>";
             

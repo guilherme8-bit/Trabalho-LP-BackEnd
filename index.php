@@ -1,3 +1,6 @@
+<?php
+    require_once "processamento/funcoesBD.php"
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,7 +42,7 @@
                         </ul>
                         <p class="preco">12x <span>R$22,90</span>/mês</p>
                         <p class="preco-total">Preço total anual R$274,80</p>
-                       <a href="view/cadstro.php" class="btn-plano">ESCOLHA SEU PLANO</a>
+                        <a href="view/cadstro.php" class="btn-plano">ESCOLHA SEU PLANO</a>
 
                     </section>
 
@@ -73,35 +76,33 @@
             <section class="destaque">
                 <h2>Filmes em alta</h2>
                 <section class="grade">
-                    <section class="card">
-                        <img src="img/filmes/filme1.webp" alt="Premonição 6">
-                        <p>Premonição 6</p>
-                    </section>
-                    <section class="card">
-                        <img src="img/filmes/filme2.jpg" alt="Superman">
-                        <p>Superman</p>
-                    </section>
-                    <section class="card">
-                        <img src="img/filmes/filme3.webp" alt="Quarteto Fantastico">
-                        <p>Quarteto Fantastico</p>
-                    </section>
+                    <?php
+                        $listarFilmes = retornarFilmes();
+                        $contador = 0;
+                        while ($filme = mysqli_fetch_assoc($listarFilmes)) {
+                            if ($contador >= 5) break;
+                            echo "<section class='card'>";
+                            echo "<img src='arquivos/{$filme['imagens']}'>";
+                            echo "</section>";
+                            $contador++;
+                        }
+                    ?>
                 </section>
             </section>
             <section class="destaque">
                 <h2>Séries em alta</h2>
                 <section class="grade">
-                    <section class="card">
-                        <img src="img/series/breaking bad.jpg" alt="Breaking bad">
-                        <p>Breaking bad</p>
-                    </section>
-                    <section class="card">
-                        <img src="img/series/got.jpg" alt="GOT">
-                        <p>Game of Thornes</p>
-                    </section>
-                    <section class="card">
-                        <img src="img/series/it.avif" alt="Quarteto Fantastico">
-                        <p>Quarteto Fantastico</p>
-                    </section>
+                    <?php
+                        $listarSeries = retornarSeries();
+                        $contador = 0;
+                        while ($serie = mysqli_fetch_assoc($listarSeries)) {
+                            if ($contador >= 5) break;
+                            echo "<section class='card'>";
+                            echo "<img src='arquivos/{$serie['imagem']}'>";
+                            echo "</section>";
+                            $contador++;
+                        }
+                    ?>
                 </section>
             </section>
         </main>

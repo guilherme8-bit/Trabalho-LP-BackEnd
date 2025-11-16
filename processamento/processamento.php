@@ -138,4 +138,35 @@ if (isset($_POST['acao']) && $_POST['acao'] === "adicionar_lista") {
     header("Location: ../view/minha_lista.php");
     exit();
 }
+
+// =========================
+// REMOVER FILME OU SÉRIE DA LISTA
+// =========================
+if (isset($_GET['acao']) && $_GET['acao'] === "remover_lista") {
+
+    if (!isset($_SESSION['id'])) {
+        echo "ERRO: usuário não está logado.";
+        exit();
+    }
+
+    $idUsuario = $_SESSION['id'];
+    $idItem = intval($_GET['id']);
+    $tipo = $_GET['tipo']; // filme ou serie
+
+    if ($tipo === "filme") {
+        $sql = "DELETE FROM minha_lista 
+                WHERE id_usuario = $idUsuario 
+                AND id_filme = $idItem";
+    } else {
+        $sql = "DELETE FROM minha_lista 
+                WHERE id_usuario = $idUsuario 
+                AND id_serie = $idItem";
+    }
+
+    mysqli_query(conectarBD(), $sql);
+
+    header("Location: ../view/minha_lista.php");
+    exit();
+}
+
 ?>

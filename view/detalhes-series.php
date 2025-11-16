@@ -45,6 +45,9 @@ if (isset($_GET['id'])) {
     <main>
         <section class='serie'>
         <?php
+            echo "<a href='../view/home.php' class='voltar'>";
+            echo "<img src='../img/voltar.png' alt='Voltar'>";
+            echo "</a>";
             echo "<img src='{$serie['imagem']}' alt='{$serie['nome']}' class='banner'>";
             echo "<section class='sobreposicao'></section>";
             

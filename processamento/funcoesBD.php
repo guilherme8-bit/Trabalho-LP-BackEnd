@@ -127,9 +127,11 @@ function retornarUsuarios(){
 
 function listarTudo(){
     $conexao = conectarBD();
-    $sql = "SELECT id, nome, imagens FROM filmes
+    $sql = "SELECT id, nome, imagens, 'filme' AS tipo 
+            FROM filmes
             UNION
-            SELECT id, nome, imagem AS imagens FROM series";
+            SELECT id, nome, imagem AS imagens, 'serie' AS tipo
+            FROM series";
     return mysqli_query($conexao, $sql);
 }
 

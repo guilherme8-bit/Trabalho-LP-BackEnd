@@ -99,8 +99,7 @@ main{
 
 .flex-perfis{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    flex-wrap: wrap;
+    grid-template-columns: repeat(2, 1fr);
     gap: 40px;
     padding: 0 80px 80px;
 }

@@ -58,13 +58,17 @@ $resultado = retornarLista($idUsuario);
     }
     ?>
 
-    <section class="card">
-        <a href="<?= $link ?>">
-            <img src="<?= $imagem ?>" alt="<?= $nome ?>">
-        </a>
-        <p><?= $nome ?></p>
-    </section>
+    <section class="filme-item">
+        <section class="card">
+            <a href="<?= $link ?>">
+                <img src="<?= $imagem ?>" alt="<?= $nome ?>">
+            </a>
+            <p><?= $nome ?></p>
+        </section>
 
+        <a class="btn-remover"
+        href="../processamento/processamento.php?acao=remover_lista&tipo=<?= $item['id_filme'] ? 'filme' : 'serie' ?>&id=<?= $item['id_filme'] ?? $item['id_serie'] ?>">Remover</a>
+    </section>
 <?php } ?>
 </main>
     <footer class="main-footer">
