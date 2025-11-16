@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 14/11/2025 às 18:43
+-- Tempo de geração: 16/11/2025 às 13:29
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -84,6 +84,23 @@ CREATE TABLE `minha_lista` (
   `id_serie` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Despejando dados para a tabela `minha_lista`
+--
+
+INSERT INTO `minha_lista` (`id`, `id_usuario`, `id_filme`, `id_serie`) VALUES
+(1, 6, 11, NULL),
+(2, 6, NULL, 14),
+(3, 6, 17, NULL),
+(4, 6, NULL, 15),
+(5, 6, 12, NULL),
+(6, 6, NULL, 22),
+(8, 7, 10, NULL),
+(9, 7, 12, NULL),
+(12, 7, NULL, 14),
+(15, 7, 24, NULL),
+(16, 7, NULL, 6);
+
 -- --------------------------------------------------------
 
 --
@@ -100,6 +117,15 @@ CREATE TABLE `pagamentos` (
   `nome_plano` varchar(100) NOT NULL,
   `parcelamento` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Despejando dados para a tabela `pagamentos`
+--
+
+INSERT INTO `pagamentos` (`id`, `nome`, `cpf`, `numero_cartao`, `data_validade`, `cod_seguranca`, `nome_plano`, `parcelamento`) VALUES
+(2, 'Guilherme L.S', '987654321', 887766, '09/2027', 453, 'com_anuncios', '12x de R$ 22,90'),
+(3, 'Dany Silva', '123456789', 223344, '12/2028', 543, 'standard', '12x de R$ 34,90'),
+(4, 'Mario', '1357986', 221133, '06/2028', 752, 'platinum', '12x de R$ 44,90');
 
 -- --------------------------------------------------------
 
@@ -183,6 +209,15 @@ CREATE TABLE `usuario` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
+-- Despejando dados para a tabela `usuario`
+--
+
+INSERT INTO `usuario` (`id`, `Nome`, `CPF`, `Email`, `Senha`, `id_plano`) VALUES
+(6, 'Guilherme L.S', '987654321', 'guilherme.l@gmail.com', '123456789', NULL),
+(7, 'Dany Silva', '123456789', 'Dany_Silva@gmail.com', '987654321', NULL),
+(8, 'Mario', '1357986', 'mario_armario@gmail.com', '667788', NULL);
+
+--
 -- Índices para tabelas despejadas
 --
 
@@ -240,13 +275,13 @@ ALTER TABLE `filmes`
 -- AUTO_INCREMENT de tabela `minha_lista`
 --
 ALTER TABLE `minha_lista`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT de tabela `pagamentos`
 --
 ALTER TABLE `pagamentos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de tabela `plano`
@@ -264,7 +299,7 @@ ALTER TABLE `series`
 -- AUTO_INCREMENT de tabela `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Restrições para tabelas despejadas
