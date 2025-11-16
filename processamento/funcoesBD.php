@@ -133,24 +133,48 @@ function listarTudo(){
     return mysqli_query($conexao, $sql);
 }
 
-function adicionarNaLista($id_usuario, $id_filme = null, $id_serie = null){
+function adicionarNaLista($idUsuario, $idItem, $tipo) {
     $conexao = conectarBD();
 
-    // Filme
-    if ($id_filme !== null) {
-        $sql = "INSERT INTO minha_lista (id_usuario, id_filme) VALUES ($id_usuario, $id_filme)";
-        mysqli_query($conexao, $sql);
-        return true;
+    if ($tipo === "filme") {
+        // evita duplicado
+        $check = "SELECT id FROM minha_lista 
+                WHERE id_usuario = $idUsuario AND id_filme = $idItem";
+    } else {
+        $check = "SELECT id FROM minha_lista 
+                WHERE id_usuario = $idUsuario AND id_serie = $idItem";
     }
 
-    // Série
-    if ($id_serie !== null) {
-        $sql = "INSERT INTO minha_lista (id_usuario, id_serie) VALUES ($id_usuario, $id_serie)";
-        mysqli_query($conexao, $sql);
-        return true;
-    }
+    $res = mysqli_query($conexao, $check);
 
-    return false;
+    if (mysqli_num_rows($res) == 0) {
+
+        if ($tipo === "filme") {
+            $sql = "INSERT INTO minha_lista (id_usuario, id_filme)
+                    VALUES ($idUsuario, $idItem)";
+        } else {
+            $sql = "INSERT INTO minha_lista (id_usuario, id_serie)
+                    VALUES ($idUsuario, $idItem)";
+        }
+
+        mysqli_query($conexao, $sql);
+    }
+}
+
+function retornarLista($idUsuario) {
+    $conexao = conectarBD();
+
+    $sql = "
+        SELECT ml.id,
+            f.id AS id_filme, f.Nome AS nome_filme, f.Imagens AS imagem_filme,
+            s.id AS id_serie, s.Nome AS nome_serie, s.Imagem AS imagem_serie
+        FROM minha_lista ml
+        LEFT JOIN filmes f ON ml.id_filme = f.id
+        LEFT JOIN series s ON ml.id_serie = s.id
+        WHERE ml.id_usuario = $idUsuario
+    ";
+
+    return mysqli_query($conexao, $sql);
 }
 
 ?>

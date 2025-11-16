@@ -2,28 +2,9 @@
 session_start();
 require "../processamento/funcoesBD.php";
 
+$idUsuario = $_SESSION['id'];
 
-if (!isset($_SESSION['id'])) {
-    header("Location: login.php");
-    die();
-}
-
-$id_usuario = $_SESSION['id'];
-$conexao = conectarBD();
-
-
-$sql = "SELECT 
-    ml.id,
-    f.nome AS nome_filme,
-    f.imagens AS imagem_filme,
-    s.nome AS nome_serie,
-    s.imagem AS imagem_serie
-FROM minha_lista ml
-LEFT JOIN filmes f ON ml.id_filme = f.id
-LEFT JOIN series s ON ml.id_serie = s.id
-WHERE ml.id_usuario = $id_usuario";
-
-$resultado = mysqli_query($conexao, $sql);
+$resultado = retornarLista($idUsuario);
 ?>
 
 
@@ -61,14 +42,30 @@ $resultado = mysqli_query($conexao, $sql);
     
 
     <?php while ($item = mysqli_fetch_assoc($resultado)) { ?>
-        <section class="card">
-            <a href="<?= $link ?>">
-            <img src="<?= $item['imagem_filme'] ?? $item['imagem_serie']; ?>" 
-                alt="<?= $item['nome_filme'] ?? $item['nome_serie']; ?>">
-            <p><?= $item['nome_filme'] ?? $item['nome_serie']; ?></p>
-            </a>
-        </section>
-    <?php } ?>
+
+    <?php
+    // Verifica automaticamente se é filme ou série
+    if ($item['id_filme']) {
+        // É um FILME
+        $link = "../view/detalhes-filmes.php?id={$item['id_filme']}";
+        $imagem = $item['imagem_filme'];
+        $nome = $item['nome_filme'];
+    } else {
+        // É uma SÉRIE
+        $link = "../view/detalhes-series.php?id={$item['id_serie']}";
+        $imagem = $item['imagem_serie'];
+        $nome = $item['nome_serie'];
+    }
+    ?>
+
+    <section class="card">
+        <a href="<?= $link ?>">
+            <img src="<?= $imagem ?>" alt="<?= $nome ?>">
+        </a>
+        <p><?= $nome ?></p>
+    </section>
+
+<?php } ?>
 </main>
     <footer class="main-footer">
         <section class="footer-content">

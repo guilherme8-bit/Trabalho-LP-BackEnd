@@ -81,55 +81,61 @@ if(isset($_POST['inputNomeT']) && isset($_POST['inputCPFT']) && isset($_POST['in
 
     inserirPag($nomeT,$cpfT,$numCartao,$datValidade,$codSeg,$plano,$parc);
 
-    header('Location:../view/home.php');
+    header('Location:../view/usuarios.php');
     die();
     
 }
 
 if (isset($_POST['inputEmailL']) && isset($_POST['inputSenhaL'])) {
+
     $email = $_POST['inputEmailL'];
     $senha = $_POST['inputSenhaL'];
 
     $conexao = conectarBD();
 
-    $sql = "SELECT * FROM usuario WHERE email = '$email' AND senha = '$senha'";
+    $sql = "SELECT * FROM usuario WHERE Email = '$email' AND Senha = '$senha'";
     $resultado = mysqli_query($conexao, $sql);
 
-    if (mysqli_num_rows($resultado) > 0) {
-
+    if (mysqli_num_rows($resultado) === 1) {
+        
         $usuario = mysqli_fetch_assoc($resultado);
 
-        $_SESSION['id'] = $usuario['id'];    
-        $_SESSION['email'] = $usuario['email'];
+        $_SESSION['id'] = $usuario['id'];
+        $_SESSION['email'] = $usuario['Email'];
 
+        header("Location: ../view/usuarios.php");
+        exit();
 
-        header("Location: ../view/usuarios.php"); 
-        die();
     } else {
-        echo "<script>alert('E-mail ou senha incorretos!'); window.location.href='../view/login.php';</script>";
+        echo "Email ou senha incorretos!";
+        exit();
     }
 }
 
+if (!isset($_SESSION['id'])) {
+    $_SESSION['id'] = $usuario['id']; ;
+}
 
-if (isset($_POST['id_filme']) || isset($_POST['id_serie'])){
-    if (!isset($_SESSION['id_perfil'])) {
-        header("Location: ../view/login.php");
+// =========================
+// ADICIONAR FILME OU SÉRIE À LISTA
+// =========================
+
+if (isset($_POST['acao']) && $_POST['acao'] === "adicionar_lista") {
+
+    if (!isset($_SESSION['id'])) {
+        // ❗ NÃO REDIRECIONAR PARA LOGIN
+        echo "ERRO: Usuário não está logado (variável de sessão não existe).";
         exit();
     }
-    
-    $conexao = conectarBD();
-    
-    
-    $id_usuario = $_SESSION['id_perfil'];
-    
-    $id_filme = $_POST['id_filme'] ?? null;
-    $id_serie = $_POST['id_serie'] ?? null;
-    
-    
-    adicionarNaLista($id_usuario, $id_filme, $id_serie);
-    
+
+    $idUsuario = $_SESSION['id'];
+    $idItem = intval($_POST['id_item']);
+    $tipo = $_POST['tipo'];   // 'filme' ou 'serie'
+
+    adicionarNaLista($idUsuario, $idItem, $tipo);
+
+    // após adicionar, voltar para a lista
     header("Location: ../view/minha_lista.php");
     exit();
 }
-
 ?>

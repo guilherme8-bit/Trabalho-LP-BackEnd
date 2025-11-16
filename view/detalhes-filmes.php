@@ -2,12 +2,17 @@
 session_start();
 require_once "../processamento/funcoesBD.php";
 
-if (isset($_GET['id'])) {
-    $id = $_GET['id'];
+if (!isset($_GET['id'])) {
+    die("ID do filme não informado.");
+}
 
-    $listarFilme = retornarFilmes(null, $id);
-    $filme = mysqli_fetch_assoc($listarFilme);
+$id = $_GET['id'];
 
+$listarFilme = retornarFilmes(null, $id);
+$filme = mysqli_fetch_assoc($listarFilme);
+
+if (!$filme) {
+    die("Filme não encontrado.");
 }
 ?>
 <!DOCTYPE html>
@@ -67,7 +72,9 @@ if (isset($_GET['id'])) {
             <button class="btn-play">Assista Agora</button>
 
             <form action="../processamento/processamento.php" method="POST" style="display:inline;">
-                <input type="hidden" name="id_filme" value="<?php echo $filme['id']; ?>">
+                <input type="hidden" name="acao" value="adicionar_lista">
+                <input type="hidden" name="id_item" value="<?php echo $filme['id']; ?>">
+                <input type="hidden" name="tipo" value="filme">
                 <button type="submit" class="btn-info">+ Minha Lista</button>
             </form>
             </section>

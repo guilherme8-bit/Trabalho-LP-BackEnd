@@ -67,7 +67,9 @@ if (isset($_GET['id'])) {
     <button class="btn-play">Assista Agora</button>
     
     <form method="POST" action="../processamento/processamento.php" style="display:inline;">
-        <input type="hidden" name="id_serie" value="<?php echo $serie['id']; ?>">
+        <input type="hidden" name="acao" value="adicionar_lista">
+        <input type="hidden" name="id_item" value="<?php echo $serie['id']; ?>">
+        <input type="hidden" name="tipo" value="serie">
         <button type="submit" class="btn-info">+ Minha Lista</button>
     </form>
         </section>

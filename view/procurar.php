@@ -67,8 +67,13 @@ if (mysqli_num_rows($listarFilmes) == 0) {
                     
 
                     while ($filme_series = mysqli_fetch_assoc($listarFilmes)) {
+                        if ($filme_series['tipo'] == 'filme') {
+                            $link = "../view/detalhes-filmes.php?id={$filme_series['id']}";
+                        } else {
+                            $link = "../view/detalhes-series.php?id={$filme_series['id']}";
+                        }
                         echo "<section class='card'>";
-                        echo "<a href='../view/detalhes-filmes.php?id={$filme_series['id']}'><img src='{$filme_series['imagens']}'></a>";
+                        echo "<a href='$link'><img src='{$filme_series['imagens']}'></a>";
                         echo "<h3>{$filme_series['nome']}</h3>";
                         echo "</section>";
                     }
