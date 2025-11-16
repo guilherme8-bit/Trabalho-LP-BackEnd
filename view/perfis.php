@@ -49,6 +49,12 @@
                     echo "<p>CPF: {$usuario['CPF']}</p>";
                     echo "<p>Senha: {$usuario['Senha']}</p>";
                     echo "<p>Plano: {$usuario['nome_plano']}</p>";
+                    echo "<p>Numero do cartão: {$usuario['numero_cartao']}</p>";
+                    echo "<p>Data de validade: {$usuario['data_validade']}</p>";
+                    echo "<p>código de segurança: {$usuario['cod_seguranca']}</p>";
+                    echo "<p>Parcelamento: {$usuario['parcelamento']}</p>";
+                    echo "<br>";
+                    echo "<a class='btn-editar' href='../view/editar.php?id={$usuario['id']}'>Editar</a>";
                     echo "</section>";
                 }
             ?>

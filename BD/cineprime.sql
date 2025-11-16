@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 16/11/2025 às 13:29
+-- Tempo de geração: 16/11/2025 às 17:46
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -89,17 +89,11 @@ CREATE TABLE `minha_lista` (
 --
 
 INSERT INTO `minha_lista` (`id`, `id_usuario`, `id_filme`, `id_serie`) VALUES
-(1, 6, 11, NULL),
-(2, 6, NULL, 14),
-(3, 6, 17, NULL),
-(4, 6, NULL, 15),
-(5, 6, 12, NULL),
-(6, 6, NULL, 22),
-(8, 7, 10, NULL),
-(9, 7, 12, NULL),
-(12, 7, NULL, 14),
-(15, 7, 24, NULL),
-(16, 7, NULL, 6);
+(20, 6, 13, NULL),
+(21, 6, 14, NULL),
+(22, 6, NULL, 8),
+(24, 7, NULL, 7),
+(25, 8, 19, NULL);
 
 -- --------------------------------------------------------
 
@@ -123,9 +117,9 @@ CREATE TABLE `pagamentos` (
 --
 
 INSERT INTO `pagamentos` (`id`, `nome`, `cpf`, `numero_cartao`, `data_validade`, `cod_seguranca`, `nome_plano`, `parcelamento`) VALUES
-(2, 'Guilherme L.S', '987654321', 887766, '09/2027', 453, 'com_anuncios', '12x de R$ 22,90'),
-(3, 'Dany Silva', '123456789', 223344, '12/2028', 543, 'standard', '12x de R$ 34,90'),
-(4, 'Mario', '1357986', 221133, '06/2028', 752, 'platinum', '12x de R$ 44,90');
+(6, 'Guilherme L.S', '987654321', 112233, '09/2030', 453, 'platinum', '12x de R$ 44,90'),
+(7, 'Dany Silva', '123456789', 223344, '12/2028', 543, 'standard', '12x de R$ 34,90'),
+(8, 'Mario', '1357986', 221133, '06/2028', 752, 'platinum', '12x de R$ 44,90');
 
 -- --------------------------------------------------------
 
@@ -275,13 +269,13 @@ ALTER TABLE `filmes`
 -- AUTO_INCREMENT de tabela `minha_lista`
 --
 ALTER TABLE `minha_lista`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT de tabela `pagamentos`
 --
 ALTER TABLE `pagamentos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de tabela `plano`

@@ -2,7 +2,7 @@
 session_start();
 require_once "funcoesBD.php";
 
-//cadastro de filme
+
 if(isset($_POST['inputNome']) && isset($_POST['inputDesc']) && isset($_POST['inputGen']) && isset($_POST['inputAva']) && isset($_POST['inputAno']) && isset($_FILES['arquivo'])){
     
     $nome = $_POST['inputNome'];
@@ -19,7 +19,7 @@ if(isset($_POST['inputNome']) && isset($_POST['inputDesc']) && isset($_POST['inp
     
 } 
 
-//cadastro de serie
+
 if(isset($_POST['inputNomeS']) && isset($_POST['inputDescS']) && isset($_POST['inputGenS']) && isset($_POST['inputAvaS']) && isset($_POST['inputAnoS']) && isset($_FILES['arquivoS'])){
     
     $nomeS = $_POST['inputNomeS'];
@@ -36,7 +36,7 @@ if(isset($_POST['inputNomeS']) && isset($_POST['inputDescS']) && isset($_POST['i
     
 }
 
-//cadastro de plano
+
 if(isset($_POST['inputNome']) && isset($_POST['inputDesc']) && isset($_POST['inputVM']) && isset($_POST['inputVA']) && isset($_POST['inputQM']) && isset($_POST['inputTS'])){
 
     $nome = $_POST['inputNome'];
@@ -55,7 +55,7 @@ if(isset($_POST['inputNome']) && isset($_POST['inputDesc']) && isset($_POST['inp
 
 }
 
-//cadastro de usuario
+
 if(isset($_POST['inputNomeU']) && isset($_POST['inputCPF'])&& isset($_POST['inputEmail'])&& isset($_POST['inputSenha'])){
 
     $nomeU = $_POST['inputNomeU'];
@@ -116,32 +116,28 @@ if (!isset($_SESSION['id'])) {
     $_SESSION['id'] = $usuario['id']; ;
 }
 
-// =========================
-// ADICIONAR FILME OU SÉRIE À LISTA
-// =========================
+
 
 if (isset($_POST['acao']) && $_POST['acao'] === "adicionar_lista") {
 
     if (!isset($_SESSION['id'])) {
-        // ❗ NÃO REDIRECIONAR PARA LOGIN
+        
         echo "ERRO: Usuário não está logado (variável de sessão não existe).";
         exit();
     }
 
     $idUsuario = $_SESSION['id'];
     $idItem = intval($_POST['id_item']);
-    $tipo = $_POST['tipo'];   // 'filme' ou 'serie'
+    $tipo = $_POST['tipo'];   
 
     adicionarNaLista($idUsuario, $idItem, $tipo);
 
-    // após adicionar, voltar para a lista
+   
     header("Location: ../view/minha_lista.php");
     exit();
 }
 
-// =========================
-// REMOVER FILME OU SÉRIE DA LISTA
-// =========================
+
 if (isset($_GET['acao']) && $_GET['acao'] === "remover_lista") {
 
     if (!isset($_SESSION['id'])) {
@@ -167,6 +163,54 @@ if (isset($_GET['acao']) && $_GET['acao'] === "remover_lista") {
 
     header("Location: ../view/minha_lista.php");
     exit();
+}
+
+if (isset($_POST['acao']) && $_POST['acao'] === "editarPerfil") {
+
+    $conexao = conectarBD();
+    mysqli_begin_transaction($conexao);
+
+    try {
+
+        $id_usuario     = $_POST['id_usuario'];
+
+        
+        $numero_cartao  = $_POST['inputNCE'];
+        $data_validade  = $_POST['inputDVE'];
+        $cod_seguranca  = $_POST['inputCDE'];
+        $plano_nome     = $_POST['plano'];   
+        $parcelamento   = $_POST['parc'];     
+
+     
+        $sqlPag = "UPDATE pagamentos SET 
+            numero_cartao = ?, 
+            data_validade = ?, 
+            cod_seguranca = ?, 
+            nome_plano = ?, 
+            parcelamento = ?
+        WHERE id = ?";
+
+        $stmtP = mysqli_prepare($conexao, $sqlPag);
+        mysqli_stmt_bind_param($stmtP, "sssssi",
+            $numero_cartao, 
+            $data_validade, 
+            $cod_seguranca, 
+            $plano_nome, 
+            $parcelamento, 
+            $id_usuario   
+        );
+        mysqli_stmt_execute($stmtP);
+
+       
+        mysqli_commit($conexao);
+
+        header("Location: ../view/perfis.php?atualizado=1");
+        exit();
+
+    } catch (Exception $erro) {
+        mysqli_rollback($conexao);
+        echo "Erro ao atualizar: " . $erro->getMessage();
+    }
 }
 
 ?>

@@ -31,7 +31,7 @@
     </header>
 
     <main class="container">
-        <h1>Quem está Assitindo?</h1>
+        <h1>Quem está Assistindo?</h1>
         <section class="perfil-container">
         <?php
             $listarUsuarios = retornarUsuarios();

@@ -3,7 +3,8 @@ body{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background:linear-gradient(rgb(0, 40, 65), rgb(0, 29, 70));
+    background: linear-gradient(#00283e, #001d3d);
+    
 }
 
 .navbar{
@@ -93,67 +94,84 @@ body{
     display: block;
 }
 
-main{
-    margin: 80px;
+.login-box{
+    background-color: #00445c;
+    text-align: center;
+    max-width: 500px;
+    width: 90%;
+    margin: 120px auto; 
+    padding: 30px;
+    box-shadow: 0px 0px 40px #0006;
+    border-radius: 8px;
 }
 
-.flex-perfis{
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 40px;
-    padding: 0 80px 80px;
-}
-
-h1 {
-    font-size: 2.5rem;
-    margin-bottom: 50px;
-    color: #fff;
-}
-
-.card{
+form{
     display: flex;
     flex-direction: column;
-    align-items: center;
-    text-align: center;
-    background-color: #fff2;
-    border-radius: 20px;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.35);
-    padding: 80px;
+    gap: 8px;
+}
+
+label {
+    align-self: flex-start;
+    color: #fff;
+    font-size: 1em;
+    font-weight: 500;
+    margin-left: 8px;
+    margin-bottom: -5px;
+}
+
+input {
     width: 100%;
-    max-width: 320px; 
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding: 15px;
+    border-radius: 25px;
+    border: none;
+    background-color: #000;
+    color: #fff;
+    outline: none;
+    font-size: 1em;
+    margin-bottom: 12px;
+    box-sizing: border-box;
 }
 
-
-.card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.5);
-}
-
-.card p {
-    margin: 5px 0 15px 0;
-    font-size: 1.2rem;
-    color: #eee;
-}
-
-.perfil-icon {
+.buttons {
+    width: 100%;
     display: flex;
     justify-content: center;
-    align-items: center;
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    border: 3px solid #000;
-    object-fit: cover;
+    gap: 15px;
+    margin-top: 15px;
     margin-bottom: 20px;
-    box-shadow: 0 0 10px #0006;
-    transition: transform 0.3s ease;
 }
 
-.perfil-icon img {
-    width: 100px;
-    height: 100px;
-    filter: invert(1);
+.btn {
+    background-color: #00b0d9;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    padding: 12px 25px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    font-size: 1em;
+    flex-grow: 1;
+    max-width: 180px;
+}
+
+.btn:hover {
+    background-color: #00d4ff;
+}
+
+.link-cadastrar{
+    width: 100%; 
+    display: block;
+    text-align: center;
+    font-size: 0.9em;
+    color: #fff;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.link-cadastrar:hover{
+    color: #00b0d9;
+    text-decoration: underline;
 }
 
 .main-footer {
@@ -239,17 +257,76 @@ h1 {
     border-top: 1px solid #012;
 }
 
- .btn-editar {
-            background-color: #1e90ff;
-            color: white;
-            border: none;
-            padding: 8px 16px;
-            border-radius: 4px;
-            cursor: pointer;
-            margin-top: 10px;
-            transition: background-color 0.3s;
-        }
+.titulo-filme{
+    text-align: start;
+    margin-bottom: 10%;
+    color:#fff;
+}
 
-        .btn-editar:hover {
-            background-color: #3742fa;
-        }
+.label-botao {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #818181;
+    color: rgb(244, 244, 244);
+    border: 1px solid rgb(244, 244, 244);
+    border-radius: 10px; 
+    text-align: center;
+    margin-left: 35%;
+}
+
+.botao-arquivo {
+    display: none;
+}
+
+.cor-titulo{
+    color: #fff;
+}
+
+
+.select-parcelas {
+    width: 100%;
+    padding: 12px;
+    font-size: 1em;
+    border-radius: 10px;
+    border: none;
+    background: #000;
+    color: #fff;
+    cursor: pointer;
+    outline: none;
+}
+
+.select-parcelas option {
+    background: #001d3d;
+    color: #fff;
+}
+
+.planos {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin: 15px 0 20px 0;
+}
+
+/* Botões dos planos */
+.btn-plano {
+    flex: 1;
+    padding: 12px;
+    background-color: #001a2c;
+    border: 1px solid #00b0d9;
+    border-radius: 10px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 0.95em;
+    transition: 0.3s;
+    text-align: center;
+}
+
+/* Hover */
+.btn-plano:hover {
+    background-color: #00b0d933;
+    transform: scale(1.03);
+}
+
+h4{
+    color: white;
+}

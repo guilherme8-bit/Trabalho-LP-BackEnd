@@ -120,7 +120,7 @@ function procurarFilmesESeries($filtro){
 
 function retornarUsuarios(){
     $conexao = conectarBD();
-    $consulta = "SELECT usuario.*, pagamentos.nome_plano  FROM usuario LEFT JOIN pagamentos ON pagamentos.id = usuario.id ";
+    $consulta = "SELECT usuario.*, pagamentos.nome_plano, pagamentos.numero_cartao, pagamentos.data_validade, pagamentos.cod_seguranca, pagamentos.parcelamento   FROM usuario LEFT JOIN pagamentos ON pagamentos.id = usuario.id ";
     $listarUsuarios = mysqli_query($conexao, $consulta);
     return $listarUsuarios;
 }
@@ -177,6 +177,32 @@ function retornarLista($idUsuario) {
     ";
 
     return mysqli_query($conexao, $sql);
+}
+
+function retornarUsuarioPorId($id){
+    $conexao = conectarBD();
+
+    // Segurança: evita SQL injection
+    $id = intval($id);
+
+    $sql = "SELECT 
+                u.id,
+                u.Nome,
+                u.Email,
+                u.CPF,
+                u.Senha,
+                p.numero_cartao,
+                p.data_validade,
+                p.cod_seguranca,
+                p.nome_plano,
+                p.parcelamento
+            FROM usuario u
+            LEFT JOIN pagamentos p ON p.id = u.id
+            WHERE u.id = $id
+            LIMIT 1";
+
+    $resultado = mysqli_query($conexao, $sql);
+    return mysqli_fetch_assoc($resultado);
 }
 
 ?>
